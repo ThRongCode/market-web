@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  # ==========================================
+  # Local development - only the database
+  # Run: docker compose up -d
+  # Then: npm run dev
+  # ==========================================
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: topsecret
+      POSTGRES_DB: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U prisma']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

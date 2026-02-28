@@ -1,0 +1,250 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+enum UserRole {
+  ADMIN
+  AGENT
+  SELLER
+  BUYER
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  BANNED
+}
+
+model User {
+  id            String     @id @default(cuid())
+  name          String?
+  email         String?    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  phone         String?
+  role          UserRole   @default(BUYER)
+  status        UserStatus @default(ACTIVE)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  accounts         Account[]
+  sessions         Session[]
+  properties       Property[]
+  favorites        Favorite[]
+  sentMessages     Message[]    @relation("SentMessages")
+  receivedMessages Message[]    @relation("ReceivedMessages")
+  reports          Report[]     @relation("ReportedBy")
+  auditLogs        AuditLog[]
+}
+
+model Property {
+  id           String         @id @default(cuid())
+  title        String
+  description  String         @db.Text
+  price        Float
+  category     Category       @default(REAL_ESTATE)
+  area         Float?
+  bedrooms     Int?
+  bathrooms    Int?
+  address      String
+  city         String
+  district     String
+  ward         String?
+  latitude     Float?
+  longitude    Float?
+  propertyType PropertyType?
+  listingType  ListingType
+  status       PropertyStatus @default(PENDING)
+  condition    ItemCondition?
+  brand        String?
+  model        String?
+  yearMade     Int?
+  images       PropertyImage[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  deletedAt    DateTime?
+
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  favorites Favorite[]
+  messages  Message[]
+  reports   Report[]
+
+  @@index([category])
+  @@index([city])
+  @@index([propertyType])
+  @@index([listingType])
+  @@index([price])
+  @@index([userId])
+  @@index([createdAt])
+  @@index([status])
+  @@index([userId, status, createdAt])
+  @@index([deletedAt])
+}
+
+model PropertyImage {
+  id         String   @id @default(cuid())
+  url        String
+  publicId   String?
+  order      Int      @default(0)
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+}
+
+model Favorite {
+  id         String   @id @default(cuid())
+  userId     String
+  propertyId String
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, propertyId])
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  content    String   @db.Text
+  phone      String?
+  email      String?
+  read       Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  senderId   String
+  receiverId String
+  propertyId String
+
+  sender   User     @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver User     @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@index([receiverId])
+  @@index([senderId])
+  @@index([createdAt])
+}
+
+model Report {
+  id         String       @id @default(cuid())
+  reason     String
+  details    String?      @db.Text
+  status     ReportStatus @default(PENDING)
+  createdAt  DateTime     @default(now())
+  resolvedAt DateTime?
+
+  reporterId String
+  propertyId String?
+
+  reporter User      @relation("ReportedBy", fields: [reporterId], references: [id], onDelete: Cascade)
+  property Property? @relation(fields: [propertyId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([reporterId])
+}
+
+enum ReportStatus {
+  PENDING
+  UNDER_REVIEW
+  RESOLVED
+  DISMISSED
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  action     String
+  resource   String
+  resourceId String?
+  details    String?  @db.Text
+  createdAt  DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([resource])
+  @@index([createdAt])
+}
+
+enum PropertyType {
+  APARTMENT
+  HOUSE
+  VILLA
+  LAND
+  OFFICE
+  SHOPHOUSE
+}
+
+enum Category {
+  REAL_ESTATE
+  VEHICLES
+  ELECTRONICS
+  FASHION
+  HOME_GARDEN
+  SPORTS
+  JOBS
+  SERVICES
+  OTHER
+}
+
+enum ItemCondition {
+  NEW
+  LIKE_NEW
+  GOOD
+  FAIR
+  POOR
+}
+
+enum ListingType {
+  SALE
+  RENT
+}
+
+enum PropertyStatus {
+  ACTIVE
+  PENDING
+  SOLD
+  RENTED
+  INACTIVE
+}
