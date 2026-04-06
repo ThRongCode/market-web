@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ChoTot - Tin đăng yêu thích</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#fffbff",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#07006c",
+              "surface-dim": "#dbd8e4",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1b1b23",
+              "surface-container-high": "#e9e6f3",
+              "surface": "#fcf8ff",
+              "primary-fixed": "#e1e0ff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#6063ee",
+              "inverse-primary": "#c0c1ff",
+              "secondary-fixed": "#e1e0ff",
+              "on-tertiary-fixed-variant": "#703700",
+              "on-surface": "#1b1b23",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "on-error": "#ffffff",
+              "outline": "#767586",
+              "tertiary-fixed-dim": "#ffb783",
+              "primary": "#4648d4",
+              "outline-variant": "#c7c4d7",
+              "inverse-on-surface": "#f2effb",
+              "tertiary-container": "#b55d00",
+              "surface-container-highest": "#e4e1ed",
+              "on-secondary-fixed-variant": "#404178",
+              "on-secondary-container": "#494b83",
+              "surface-container": "#efecf8",
+              "secondary-fixed-dim": "#c0c1ff",
+              "error-container": "#ffdad6",
+              "secondary-container": "#bdbefe",
+              "inverse-surface": "#303038",
+              "on-secondary-fixed": "#13144a",
+              "tertiary-fixed": "#ffdcc5",
+              "surface-container-low": "#f5f2fe",
+              "surface-variant": "#e4e1ed",
+              "secondary": "#575992",
+              "error": "#ba1a1a",
+              "surface-bright": "#fcf8ff",
+              "on-surface-variant": "#464554",
+              "background": "#fcf8ff",
+              "on-tertiary-fixed": "#301400",
+              "primary-fixed-dim": "#c0c1ff",
+              "surface-tint": "#494bd6",
+              "on-error-container": "#93000a",
+              "tertiary": "#904900",
+              "on-primary-container": "#fffbff"
+            },
+            fontFamily: {
+              "headline": ["Be Vietnam Pro"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-lift {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .tonal-lift:hover {
+            transform: scale(1.02);
+            background-color: var(--tw-surface-container-high);
+        }
+        .no-line-rule {
+            border: none !important;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-indigo-600 dark:text-indigo-400 italic font-headline">ChoTot</span>
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full w-96 gap-3">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full outline-none" placeholder="Tìm kiếm tin đăng..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">chat</span>
+</button>
+<button class="p-2 rounded-full hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">help</span>
+</button>
+</div>
+<button class="signature-gradient text-on-primary px-6 py-2 rounded-full font-bold text-sm active:scale-95 transition-transform">Post Listing</button>
+</div>
+</header>
+<!-- Sidebar Shell -->
+<aside class="fixed left-0 top-0 h-full w-24 md:w-64 bg-slate-50 dark:bg-slate-950 flex flex-col h-full py-6 space-y-4 z-40 pt-20">
+<nav class="flex-1 space-y-1">
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined mr-4">home</span>
+<span class="hidden md:block font-medium text-sm">Home</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined mr-4">domain</span>
+<span class="hidden md:block font-medium text-sm">Properties</span>
+</a>
+<a class="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-200 rounded-xl mx-2 flex items-center px-4 py-3 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="hidden md:block font-bold text-sm">Favorites</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined mr-4">chat</span>
+<span class="hidden md:block font-medium text-sm">Messages</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined mr-4">map</span>
+<span class="hidden md:block font-medium text-sm">Map</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined mr-4">person_outline</span>
+<span class="hidden md:block font-medium text-sm">Profile</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1">
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined mr-4">settings</span>
+<span class="hidden md:block font-medium text-sm">Settings</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined mr-4 text-error">logout</span>
+<span class="hidden md:block font-medium text-sm text-error">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-24 md:ml-64 pt-24 min-h-screen px-6 md:px-12 pb-20">
+<!-- Editorial Header Section -->
+<header class="mb-12">
+<div class="flex items-baseline gap-4 mb-2">
+<h1 class="text-4xl font-black text-on-surface tracking-tight font-headline">Tin đăng yêu thích</h1>
+<span class="text-indigo-600 font-bold text-sm tracking-wider uppercase">8 items</span>
+</div>
+<p class="text-on-surface-variant max-w-2xl text-lg">Những lựa chọn được tuyển lọc dành riêng cho phong cách của bạn. Lưu trữ hôm nay, sở hữu ngày mai.</p>
+</header>
+<!-- Empty State (Hidden by default, shown if no listings) -->
+<section class="hidden flex-col items-center justify-center py-32 text-center bg-surface-container-low rounded-2xl">
+<div class="w-24 h-24 bg-surface-container-high rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-6xl text-error/30" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<h2 class="text-2xl font-bold mb-2">Chưa có tin đăng yêu thích</h2>
+<p class="text-on-surface-variant mb-8 max-w-xs">Bắt đầu khám phá và lưu lại những món đồ bạn yêu thích ngay bây giờ.</p>
+<button class="signature-gradient text-on-primary px-8 py-3 rounded-xl font-bold active:scale-95 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined">explore</span>
+                Khám phá ngay
+            </button>
+</section>
+<!-- Bento Favorites Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Large Featured Favorite Card (Asymmetric Span) -->
+<div class="md:col-span-2 md:row-span-2 group relative overflow-hidden bg-surface-container rounded-2xl tonal-lift">
+<div class="relative h-96 w-full">
+<img alt="Luxury Villa" class="w-full h-full object-cover" data-alt="Modern minimalist luxury villa with floor-to-ceiling windows overlooking a serene garden at twilight with soft interior lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTmT3BLu7b4hLixaqz2AfzwM68m0lTXKNNT_Xo6vAwv61pvQTd6-nseGo6C5OirGdkTOCnaQ34gD1o6gULsnr2lMzq1r4SdVWzWQSGPiJuzJ1BpJscg5-aaMzjSFoQ-gMU9zHyP-iKU4yNZ79A99ZuoG5Aa-moMCuzYPaxAkxB0YzIQuPaF1uNiHLpJalyrVPtP-OpH0m15wlyNFgcKOTyF9pcWs6dMz7pPzs_GSgKS24CR7q1R90x6eWF1KSq4zI_t8jJqdDCWwg"/>
+<button class="absolute top-4 right-4 bg-white/90 p-2 rounded-full shadow-md text-error flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Featured</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-bold tracking-tight">Biệt thự phố phong cách Indochine</h3>
+<span class="text-2xl font-black text-indigo-600">12.5 Tỷ</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm mb-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> Quận 2, TP.HCM</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 2 giờ trước</span>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-container-high px-4 py-2 rounded-lg text-xs font-medium">4 Bedrooms</span>
+<span class="bg-surface-container-high px-4 py-2 rounded-lg text-xs font-medium">350 m²</span>
+<span class="bg-surface-container-high px-4 py-2 rounded-lg text-xs font-medium">Smart Home</span>
+</div>
+</div>
+</div>
+<!-- Standard Grid Items -->
+<div class="bg-surface-container rounded-2xl overflow-hidden tonal-lift">
+<div class="relative h-48 w-full">
+<img alt="Designer Sofa" class="w-full h-full object-cover" data-alt="Sleek mustard yellow mid-century modern sofa in a bright sunlit studio with minimalist decor and wooden floors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2UKjgv1BdJqLovpQVEcdeIDqugnXjK5gUkY_8Yp8bHf-FLUwdfPnJo8O6yNIduRnNyw6v92NVkNXnLH_eMH3bBdz3Ibf3WsRZXWdwqiCkMgPeojO-XY5w6bqGGPDKaFbQEaxcjNSzHw7Ym4RoiiT9sm1-_sHzMceAsAoZE7RAu4HtEhZuCbNrWh-ixTvxIAYsbRnnOL8CmuVCtolmxpijP6KShUUkQ1k9SvUDDvblqheKqDDGHZHYNt9GoR1HDkFs6FjQGUImYcM"/>
+<button class="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full shadow-md text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<span class="text-[10px] uppercase font-bold text-indigo-500 tracking-wider">Furniture</span>
+<h4 class="font-bold text-lg leading-tight mb-2 truncate">Sofa Mid-Century Tân Cổ Điển</h4>
+<p class="text-indigo-600 font-bold mb-3">8.200.000đ</p>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                        Quận 7, TP.HCM
+                    </div>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl overflow-hidden tonal-lift">
+<div class="relative h-48 w-full">
+<img alt="Headphones" class="w-full h-full object-cover" data-alt="Professional studio headphones on a wooden desk with warm bokeh background of music equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXABI6Luhk_mS9NSXnvxbDHRlEp_0MYGoyXay9wLbdpBN71BHAykERaKgFIs_T1vrwY20bArSn3U36fFxeDYJgKkphpVbxXlkb4IPH15-CoKpodnW07VO-e2Uc3AwrVXtlxas3MY5lsPNl5G5oVul50q0G6LU_20yU5JuoZGRhzN_2iSwUJdDRoFbTknlFU6gcTgvqq9RPE0m5JzVNb5c66QcNC39_eSGKmxv3ZqaspkgdLU03dLOANduIhHAGtOhT38QRnpqE7DA"/>
+<button class="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full shadow-md text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<span class="text-[10px] uppercase font-bold text-indigo-500 tracking-wider">Electronics</span>
+<h4 class="font-bold text-lg leading-tight mb-2 truncate">Tai nghe Sony WH-1000XM5</h4>
+<p class="text-indigo-600 font-bold mb-3">5.500.000đ</p>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                        Ba Đình, Hà Nội
+                    </div>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl overflow-hidden tonal-lift">
+<div class="relative h-48 w-full">
+<img alt="Mechanical Watch" class="w-full h-full object-cover" data-alt="Close-up of a vintage mechanical wristwatch with leather strap on a textured dark background, emphasizing intricate gears" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjfZiPUrmxfW6_UEPD5pp-vG7OyUWZKPidQU7-nxOX52vvbMNMZkXwBsAl9WpdxHBbGEDiy3xqWgDFDQQ2_gDmKzXGMCLZnC9V6Rf17Xlaqf0RHg01s-Gv2VLubqzadBBvxqYRi6_-vtkhq289vDQDv1mxp_Xk2RmkKfg5dtDiiECt4DH4MkrbabhuWj05we56_pL2WTUU1cHxFdYWcXcJ57FKkQyIEeT4jxGdni6iRAoOfgraz8J-U5k_J8Ijs51FdQYiQ0RKwcc"/>
+<button class="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full shadow-md text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<span class="text-[10px] uppercase font-bold text-indigo-500 tracking-wider">Accessories</span>
+<h4 class="font-bold text-lg leading-tight mb-2 truncate">Đồng hồ Seiko Vintage 1970s</h4>
+<p class="text-indigo-600 font-bold mb-3">3.450.000đ</p>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                        Hải Châu, Đà Nẵng
+                    </div>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl overflow-hidden tonal-lift">
+<div class="relative h-48 w-full">
+<img alt="Laptop" class="w-full h-full object-cover" data-alt="Sleek metallic laptop on a clean white desk with a small succulent plant and natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6g4zjsriteQQ9W6o89ewkNDC-dLVZDGGFMxouhtIwgx5nH6ypOEjtFMVPMaJ7dSltqQUsVa15FC1g1y8e448ttkqgibVt7yzI85r0sel7xBfY7DtA2kuyuDUVxTE1ZYSnPlMgZrn5yWERVtols9plSEU971hd5XtU9oLWQPNYq6LXM4U2dU61dPWr7ruzE4-4J28_jukD2AtaKMHkZc7ZOVyHLuodg2mY00Okxho8j7GtRgurnnYfzTaWWenZASh3_dXncs9Vvzk"/>
+<button class="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full shadow-md text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<span class="text-[10px] uppercase font-bold text-indigo-500 tracking-wider">Laptops</span>
+<h4 class="font-bold text-lg leading-tight mb-2 truncate">MacBook Pro M2 14-inch</h4>
+<p class="text-indigo-600 font-bold mb-3">32.000.000đ</p>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                        Cầu Giấy, Hà Nội
+                    </div>
+</div>
+</div>
+<!-- Tonal Section for Category Quick Links -->
+<div class="md:col-span-2 bg-surface-container-high rounded-2xl p-8 flex flex-col justify-center">
+<h3 class="text-xl font-bold mb-4">Mở rộng danh sách của bạn</h3>
+<p class="text-on-surface-variant mb-6 text-sm">Khám phá thêm nhiều danh mục khác để tìm thấy món đồ hoàn hảo nhất cho không gian sống của bạn.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 bg-surface rounded-full text-xs font-bold border border-outline-variant/10">Bất động sản</span>
+<span class="px-4 py-2 bg-surface rounded-full text-xs font-bold border border-outline-variant/10">Xe cộ</span>
+<span class="px-4 py-2 bg-surface rounded-full text-xs font-bold border border-outline-variant/10">Đồ gia dụng</span>
+<span class="px-4 py-2 bg-surface rounded-full text-xs font-bold border border-outline-variant/10">Thời trang</span>
+<span class="px-4 py-2 bg-surface rounded-full text-xs font-bold border border-outline-variant/10">Thú cưng</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="ml-24 md:ml-64 bg-slate-50 dark:bg-slate-950">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-lg font-bold text-indigo-600 font-headline">ChoTot</span>
+<p class="text-xs text-slate-500 font-label mt-1">© 2024 ChoTot Digital Curator. All rights reserved.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100 font-label" href="#">About</a>
+<a class="text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100 font-label" href="#">Contact</a>
+<a class="text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100 font-label" href="#">Terms</a>
+<a class="text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100 font-label" href="#">Privacy</a>
+<a class="text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100 font-label" href="#">Help</a>
+</div>
+</div>
+</footer>
+<!-- FAB Overlay -->
+<button class="fixed bottom-8 right-8 signature-gradient w-16 h-16 rounded-2xl shadow-xl flex items-center justify-center text-white active:scale-90 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ChoTot | Map View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#07006c",
+                        "surface-dim": "#dbd8e4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1b1b23",
+                        "surface-container-high": "#e9e6f3",
+                        "surface": "#fcf8ff",
+                        "primary-fixed": "#e1e0ff",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#6063ee",
+                        "inverse-primary": "#c0c1ff",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "on-surface": "#1b1b23",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-error": "#ffffff",
+                        "outline": "#767586",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "primary": "#4648d4",
+                        "outline-variant": "#c7c4d7",
+                        "inverse-on-surface": "#f2effb",
+                        "tertiary-container": "#b55d00",
+                        "surface-container-highest": "#e4e1ed",
+                        "on-secondary-fixed-variant": "#404178",
+                        "on-secondary-container": "#494b83",
+                        "surface-container": "#efecf8",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#bdbefe",
+                        "inverse-surface": "#303038",
+                        "on-secondary-fixed": "#13144a",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-container-low": "#f5f2fe",
+                        "surface-variant": "#e4e1ed",
+                        "secondary": "#575992",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf8ff",
+                        "on-surface-variant": "#464554",
+                        "background": "#fcf8ff",
+                        "on-tertiary-fixed": "#301400",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "surface-tint": "#494bd6",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#904900",
+                        "on-primary-container": "#fffbff"
+                    },
+                    fontFamily: {
+                        "headline": ["Be Vietnam Pro"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-lift {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c7c4d7;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden h-screen flex">
+<!-- SideNavBar (Persistent Rail) -->
+<aside class="fixed left-0 top-0 h-full w-24 md:w-64 bg-slate-50 dark:bg-slate-950 flex flex-col py-6 space-y-4 z-[100] transition-all">
+<div class="px-6 mb-8 hidden md:block">
+<h1 class="text-2xl font-black text-indigo-600 italic tracking-tight">ChoTot</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mt-1">Digital Curator</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Home -->
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="home">home</span>
+<span class="hidden md:block font-medium text-sm">Home</span>
+</a>
+<!-- Properties -->
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="domain">domain</span>
+<span class="hidden md:block font-medium text-sm">Properties</span>
+</a>
+<!-- Favorites -->
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="favorite">favorite</span>
+<span class="hidden md:block font-medium text-sm">Favorites</span>
+</a>
+<!-- Messages -->
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="chat">chat</span>
+<span class="hidden md:block font-medium text-sm">Messages</span>
+</a>
+<!-- Map (Active) -->
+<a class="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-200 rounded-xl mx-2 flex items-center px-4 py-3 group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="hidden md:block font-bold text-sm">Map</span>
+</a>
+<!-- Profile -->
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="person_outline">person_outline</span>
+<span class="hidden md:block font-medium text-sm">Profile</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-2">
+<button class="w-full signature-gradient text-white py-3 rounded-xl font-bold text-sm hidden md:flex items-center justify-center gap-2 shadow-lg shadow-indigo-200 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Create Listing
+            </button>
+<div class="h-px bg-slate-200 mx-4 md:hidden"></div>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="settings">settings</span>
+<span class="hidden md:block font-medium text-sm">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area (Full Screen Shifted by Sidebar) -->
+<main class="flex-1 ml-24 md:ml-64 flex h-screen overflow-hidden relative">
+<!-- Left Filter Sidebar (350px) -->
+<section class="w-[350px] h-full bg-surface-container-low flex flex-col z-20 shadow-xl shadow-slate-900/5 overflow-hidden">
+<!-- Header for Filters -->
+<div class="p-6 bg-white/80 backdrop-blur-xl border-b border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xl font-bold tracking-tight text-on-surface">Curated Search</h2>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="tune">tune</span>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container rounded-xl border-0 py-3 pl-11 pr-4 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/50" placeholder="Keywords (e.g. Modern Villa)" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary" data-icon="search">search</span>
+</div>
+</div>
+<!-- Scrollable Filter Content -->
+<div class="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
+<!-- Category Bento Selection -->
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Category</p>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-start p-4 bg-white rounded-xl hover:bg-secondary-container transition-colors text-left group">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="apartment">apartment</span>
+<span class="text-xs font-bold">Condos</span>
+</button>
+<button class="flex flex-col items-start p-4 bg-primary text-white rounded-xl text-left shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined mb-2" data-icon="home_work" style="font-variation-settings: 'FILL' 1;">home_work</span>
+<span class="text-xs font-bold">Houses</span>
+</button>
+<button class="flex flex-col items-start p-4 bg-white rounded-xl hover:bg-secondary-container transition-colors text-left group">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="landscape">landscape</span>
+<span class="text-xs font-bold">Land</span>
+</button>
+<button class="flex flex-col items-start p-4 bg-white rounded-xl hover:bg-secondary-container transition-colors text-left group">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="store">store</span>
+<span class="text-xs font-bold">Commercial</span>
+</button>
+</div>
+</div>
+<!-- Price Range -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Price Range</p>
+<span class="text-xs font-bold text-primary">$2k - $15k</span>
+</div>
+<div class="relative h-2 bg-surface-container-highest rounded-full">
+<div class="absolute left-1/4 right-1/4 h-full bg-primary rounded-full"></div>
+<div class="absolute left-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-md cursor-pointer"></div>
+<div class="absolute right-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-md cursor-pointer"></div>
+</div>
+</div>
+<!-- Featured Listings Carousel-ish -->
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">In this view</p>
+<div class="space-y-4">
+<!-- Listing Card -->
+<div class="bg-white p-3 rounded-2xl flex gap-4 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="w-20 h-20 rounded-xl overflow-hidden bg-slate-200 shrink-0">
+<img alt="Listing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="modern minimalist house exterior with glass windows and warm interior lighting at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-beozp5KJUGq3wNas2YngIFkzqz7umVS4Fd_u9kQz995ahzIiNbHqydtdNsbaXuuQuIfUzOvsNrAGE9jfrtf-epnLqIjSn4JSqgOtWuWv0pP8GN--tYwdpVA5PwbK3iQ16tHKX0d-ayRpIiAnU9hxkbusbrfmbdehpLRM21AEwQwfBHOfBZsxvuatM6sB3X9pI4nqHhxC5ulOeVgLvoRq8SrN9uRwo1V0h8zFdoCfXX8YRrrghW3zWc0WrZg0DyzpxVbUD37OYIY"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-bold text-sm text-on-surface line-clamp-1">Skyline Penthouse</h4>
+<p class="text-xs text-on-surface-variant mb-1">Ho Chi Minh City</p>
+<p class="text-sm font-black text-primary">$4,500/mo</p>
+</div>
+</div>
+<!-- Listing Card -->
+<div class="bg-white p-3 rounded-2xl flex gap-4 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="w-20 h-20 rounded-xl overflow-hidden bg-slate-200 shrink-0">
+<img alt="Listing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="luxury infinity pool overlooking a tropical coastline with palm trees and clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWWTfCHfNVfBNtwbnj4naC4lE9yMo5qktAh_LR7-ITC6G1xcApOKZUqViyU2_lVjw2rQTIX69zGEkJLdvhtywBRZyRir2KCV0AQHLN2fJMiDpldzulbV_w7Fxfg5OEP49U7zbogj5XLiThcSLcZQXcpoHcU_jQcIy9k4QhaFuBL9FceD1ZDAvZD9f62orf-pR9kXgMVkJkcwACf3wQsK0BnwV2IT4xGskX1jYUaRVf9u4ceGctQfZ95wJXFrmygDVHAdHGb0lwTfY"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-bold text-sm text-on-surface line-clamp-1">Ocean View Villa</h4>
+<p class="text-xs text-on-surface-variant mb-1">Da Nang</p>
+<p class="text-sm font-black text-primary">$12,000/mo</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="p-6 bg-white border-t border-outline-variant/10">
+<button class="w-full bg-secondary-container text-on-secondary-container py-4 rounded-xl font-bold text-sm active:scale-95 transition-all">
+                    Show 124 Results
+                </button>
+</div>
+</section>
+<!-- Right Side: Map Canvas -->
+<section class="flex-1 relative z-10 bg-surface-container-highest">
+<!-- Simulated Map Container -->
+<div class="absolute inset-0 grayscale-[0.2] contrast-[1.1]">
+<img alt="Map View" class="w-full h-full object-cover opacity-60" data-alt="stylized aerial map of an urban city with blocks and river intersections in soft muted tones" data-location="Ho Chi Minh City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa2QmwwL78nfODrDuXucaOffskiEUQLtvorRMAWVHMk9rvEqTv_Av5W1gLo7SICq7i9liLTxIYm4JRg2E5SDQWF7OxB7iMUmVwiDhYkKOlPOw_flUwJKSK2bfz2HHwpw53I1nNxeqwaL1molybSFUv2QM53hIXFpZqTqqAPq63MyXCex3hR4pDUcAeRcOSMh969Q1i7I238MIerY8BUTberad4wtjN9ctgjf94C9eXmLEGBACHKhmVuxqjpRJq1B6EauvgIaCGBTQ"/>
+<!-- Custom MD3 Pin Markers (Absolute Positioning) -->
+<!-- Marker 1 -->
+<div class="absolute top-[30%] left-[40%] group cursor-pointer">
+<div class="flex flex-col items-center">
+<div class="bg-white px-3 py-1.5 rounded-full shadow-lg border-2 border-primary mb-1 transform group-hover:-translate-y-1 transition-transform">
+<span class="text-xs font-black text-primary">$4,500</span>
+</div>
+<div class="w-4 h-4 bg-primary rounded-full border-2 border-white shadow-md"></div>
+</div>
+<!-- Popup on Hover (Simulated) -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-48 bg-white rounded-2xl shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none p-4 z-50">
+<img class="w-full h-24 object-cover rounded-xl mb-3" data-alt="luxury house interior with modern furniture and large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIFg-xZZVW-QQkwhm1PVzQ7ccV4g31N79TKtji2iP8sxLeCuGCzcrdW_X2b2la8UhNb_95qG2wz1S8XYqmRGrx_V8Y4C09rzL_US_Xvz86iD7fxpIKPnIQ7ECxten4zQU2jo5c6eO8J3EExpfmpavOjPs5t_CTiEyNACFN6J96GXWNWAp14tOpkgYAtFzAFEWOck5lktXflvotQHASlPdKEoNAG0JAAyWnJQ3ZvOLQItx7uBY6gPtSfzuLbL8uoNVoByv_zos73bE"/>
+<h5 class="font-bold text-sm mb-1">Skyline Penthouse</h5>
+<p class="text-xs text-on-surface-variant">$4,500 • 3 Bed</p>
+</div>
+</div>
+<!-- Marker 2 -->
+<div class="absolute top-[55%] left-[65%] group cursor-pointer">
+<div class="flex flex-col items-center">
+<div class="bg-white px-3 py-1.5 rounded-full shadow-lg border-2 border-primary mb-1 transform group-hover:-translate-y-1 transition-transform">
+<span class="text-xs font-black text-primary">$12,000</span>
+</div>
+<div class="w-4 h-4 bg-primary rounded-full border-2 border-white shadow-md"></div>
+</div>
+<!-- Popup on Hover -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-48 bg-white rounded-2xl shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none p-4 z-50">
+<img class="w-full h-24 object-cover rounded-xl mb-3" data-alt="coastal villa with infinity pool and sunset view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtLnD524HiWNXknhrrCKeqqYe47sjZzmEI0tREQUJd2cyiEHLGzFQYvFHMIp3zyjjqK0WeoMdWe91Bmkj4cOUf-dK9pxpb_cvP7h_XcTPeD_Gqon_TsLPMAYs5bJf9v5ufLJ3FLW7AQQ4-cIMeE_mt8Db7f39MWcwW-v7UHQWl18o473Z1CI3X33T3AWJgzK1iCiGhRHIcKxJO9LnAfmOtXCGDMiQS3jTrPp7_AM6yXxkkLEAjoilfL8o1ccml03oPW-4d07n0gyM"/>
+<h5 class="font-bold text-sm mb-1">Ocean View Villa</h5>
+<p class="text-xs text-on-surface-variant">$12,000 • 5 Bed</p>
+</div>
+</div>
+<!-- Marker 3 -->
+<div class="absolute top-[45%] left-[20%] group cursor-pointer">
+<div class="flex flex-col items-center">
+<div class="bg-white px-3 py-1.5 rounded-full shadow-lg border-2 border-primary mb-1 transform group-hover:-translate-y-1 transition-transform">
+<span class="text-xs font-black text-primary">$2,800</span>
+</div>
+<div class="w-4 h-4 bg-primary rounded-full border-2 border-white shadow-md"></div>
+</div>
+</div>
+</div>
+<!-- Map Controls (Floating) -->
+<div class="absolute top-6 right-6 flex flex-col gap-3">
+<div class="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl p-2 flex flex-col gap-2">
+<button class="p-2 hover:bg-surface-container rounded-xl text-on-surface-variant active:scale-95 transition-transform"><span class="material-symbols-outlined" data-icon="add">add</span></button>
+<div class="h-px bg-outline-variant/20 mx-2"></div>
+<button class="p-2 hover:bg-surface-container rounded-xl text-on-surface-variant active:scale-95 transition-transform"><span class="material-symbols-outlined" data-icon="remove">remove</span></button>
+</div>
+<button class="bg-white/80 backdrop-blur-xl p-3 rounded-2xl shadow-xl text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="my_location">my_location</span>
+</button>
+</div>
+<!-- Layers Control (Floating Bottom) -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-2xl px-6 py-3 rounded-full shadow-2xl flex items-center gap-6 border border-white">
+<button class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined" data-icon="layers" style="font-variation-settings: 'FILL' 1;">layers</span>
+<span class="text-xs font-bold uppercase tracking-wider">Map</span>
+</button>
+<div class="w-px h-4 bg-outline-variant/30"></div>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="satellite_alt">satellite_alt</span>
+<span class="text-xs font-bold uppercase tracking-wider">Satellite</span>
+</button>
+<div class="w-px h-4 bg-outline-variant/30"></div>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="streetview">streetview</span>
+<span class="text-xs font-bold uppercase tracking-wider">Street</span>
+</button>
+</div>
+<!-- Floating Search/Notification Bar (Top Center) -->
+<div class="absolute top-6 left-6 right-6 flex items-center justify-between pointer-events-none">
+<div class="flex gap-4 pointer-events-auto">
+<!-- Notification Chip -->
+<div class="bg-white/80 backdrop-blur-xl pl-4 pr-6 py-2.5 rounded-full shadow-lg flex items-center gap-3 border border-white/50">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+<span class="text-xs font-medium">New listing in your area</span>
+</div>
+</div>
+<div class="flex gap-4 pointer-events-auto">
+<div class="flex gap-2">
+<button class="p-3 bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-3 bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Post FAB (Bottom Right) -->
+<button class="fixed bottom-10 right-10 bg-tertiary-container text-white p-6 rounded-[2rem] shadow-2xl hover:scale-105 active:scale-95 transition-all z-50 flex items-center gap-4 group">
+<span class="material-symbols-outlined text-3xl" data-icon="add_circle">add_circle</span>
+<span class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 whitespace-nowrap font-bold text-sm tracking-tight">Post Listing</span>
+</button>
+</main>
+</body></html>

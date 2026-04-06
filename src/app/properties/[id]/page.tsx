@@ -338,7 +338,7 @@ export default function PropertyDetailPage() {
   const isRealEstate = property.category === 'REAL_ESTATE';
   const images = property.images?.length > 0 
     ? property.images 
-    : [{ id: '1', url: '/placeholder-property.jpg', propertyId: property.id }];
+    : [{ id: '1', url: '/placeholder-property.svg', propertyId: property.id }];
 
   return (
     <Container 
@@ -365,7 +365,7 @@ export default function PropertyDetailPage() {
               onClick={() => setLightboxOpen(true)}
             >
               <Image
-                src={images[selectedImage]?.url || '/placeholder-property.jpg'}
+                src={images[selectedImage]?.url || '/placeholder-property.svg'}
                 alt={property.title}
                 fill
                 style={{ objectFit: 'cover' }}
@@ -625,7 +625,7 @@ export default function PropertyDetailPage() {
             </IconButton>
             <Box sx={{ position: 'relative', width: '80%', height: 500 }}>
               <Image
-                src={images[selectedImage]?.url || '/placeholder-property.jpg'}
+                src={images[selectedImage]?.url || '/placeholder-property.svg'}
                 alt={property.title}
                 fill
                 style={{ objectFit: 'contain' }}

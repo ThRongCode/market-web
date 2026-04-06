@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đăng nhập | ChoTot Digital Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#fffbff",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#07006c",
+              "surface-dim": "#dbd8e4",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1b1b23",
+              "surface-container-high": "#e9e6f3",
+              "surface": "#fcf8ff",
+              "primary-fixed": "#e1e0ff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#6063ee",
+              "inverse-primary": "#c0c1ff",
+              "secondary-fixed": "#e1e0ff",
+              "on-tertiary-fixed-variant": "#703700",
+              "on-surface": "#1b1b23",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "on-error": "#ffffff",
+              "outline": "#767586",
+              "tertiary-fixed-dim": "#ffb783",
+              "primary": "#4648d4",
+              "outline-variant": "#c7c4d7",
+              "inverse-on-surface": "#f2effb",
+              "tertiary-container": "#b55d00",
+              "surface-container-highest": "#e4e1ed",
+              "on-secondary-fixed-variant": "#404178",
+              "on-secondary-container": "#494b83",
+              "surface-container": "#efecf8",
+              "secondary-fixed-dim": "#c0c1ff",
+              "error-container": "#ffdad6",
+              "secondary-container": "#bdbefe",
+              "inverse-surface": "#303038",
+              "on-secondary-fixed": "#13144a",
+              "tertiary-fixed": "#ffdcc5",
+              "surface-container-low": "#f5f2fe",
+              "surface-variant": "#e4e1ed",
+              "secondary": "#575992",
+              "error": "#ba1a1a",
+              "surface-bright": "#fcf8ff",
+              "on-surface-variant": "#464554",
+              "background": "#fcf8ff",
+              "on-tertiary-fixed": "#301400",
+              "primary-fixed-dim": "#c0c1ff",
+              "surface-tint": "#494bd6",
+              "on-error-container": "#93000a",
+              "tertiary": "#904900",
+              "on-primary-container": "#fffbff"
+            },
+            fontFamily: {
+              "headline": ["Be Vietnam Pro"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background-color: rgba(252, 248, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center justify-center p-6 selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top bar suppressed for Transactional focus as per Filter Rule -->
+<main class="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left Side: Editorial Content (Bento Style) -->
+<div class="hidden lg:flex lg:col-span-7 flex-col space-y-6">
+<div class="bg-primary-fixed p-12 rounded-2xl relative overflow-hidden h-[400px] flex flex-col justify-end">
+<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply" data-alt="Modern minimalist living room with designer furniture and warm sunlight streaming through large windows in a premium apartment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6hO5WSrLJ5S121vL41GhLb_n99b6zzO1dCn5ZivUh76BAVz6qZRHKr9OP4Agm5UZBQqs5HLK1HbDOQ_H-UkcIsKUjTVCI8FgzupgGeTmgHORBW-CSUTesqWHJNl-wnbmmPpQaAOc_Hgc6fEFaRCBOdeg5FVeb45k1iQTr5qyzes_xkPxTe4mnSGAvzXFMF7AYdtQmIBjIOwFH4P9Ekh6hGxgvsJtbbpR65O1d29SNxY1vjBv2xrewA_HxCLEwV3rrZIregH_rG-E"/>
+<div class="relative z-10">
+<h2 class="text-4xl font-black text-on-primary-fixed tracking-tight leading-none mb-4 italic">ChoTot</h2>
+<p class="text-xl font-medium text-on-primary-fixed-variant max-w-md">Experience second-hand commerce as a high-end editorial journey.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container p-8 rounded-2xl">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;">verified_user</span>
+<h3 class="text-lg font-bold mb-2">Authenticated Luxury</h3>
+<p class="text-sm text-on-surface-variant">Every listing is curated to ensure the highest standards of quality and trust.</p>
+</div>
+<div class="bg-tertiary-container text-on-tertiary-container p-8 rounded-2xl flex flex-col justify-between">
+<p class="text-xs uppercase tracking-widest font-bold opacity-80">Featured Community</p>
+<h3 class="text-2xl font-bold leading-tight">Join 2M+ Curators in Vietnam.</h3>
+</div>
+</div>
+</div>
+<!-- Right Side: Login Card -->
+<div class="lg:col-span-5 w-full">
+<div class="bg-surface-container-lowest rounded-2xl p-8 md:p-12 shadow-[0_32px_64px_-12px_rgba(27,27,35,0.06)] border border-outline-variant/15">
+<!-- Brand Anchor -->
+<div class="mb-10">
+<h1 class="text-3xl font-black text-primary tracking-tight mb-2">Đăng nhập</h1>
+<p class="text-on-surface-variant text-sm">Chào mừng bạn trở lại với Digital Curator.</p>
+</div>
+<!-- Quick Fill Chips -->
+<div class="mb-8">
+<p class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-3">Tài khoản dùng thử</p>
+<div class="flex flex-wrap gap-2">
+<button class="bg-surface-container-high hover:bg-secondary-container text-on-surface text-xs font-medium px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-2 active:scale-95">
+<span class="material-symbols-outlined text-sm">person</span>
+                            nguyen.van.a
+                        </button>
+<button class="bg-surface-container-high hover:bg-secondary-container text-on-surface text-xs font-medium px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-2 active:scale-95">
+<span class="material-symbols-outlined text-sm">person</span>
+                            tran.thi.b
+                        </button>
+</div>
+</div>
+<form class="space-y-6">
+<!-- Input Email -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Email</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-xl px-4 py-4 text-on-surface placeholder:text-outline transition-all" placeholder="example@domain.com" type="email"/>
+</div>
+</div>
+<!-- Input Password -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Mật khẩu</label>
+<a class="text-xs font-bold text-primary hover:underline underline-offset-4" href="#">Quên mật khẩu?</a>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-xl px-4 py-4 text-on-surface placeholder:text-outline transition-all" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant hover:text-primary" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="signature-gradient w-full py-4 rounded-xl text-on-primary font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-200" type="submit">
+                        Tiếp tục
+                    </button>
+</form>
+<!-- Divider -->
+<div class="relative my-10">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/30"></div>
+</div>
+<div class="relative flex justify-center text-xs uppercase tracking-widest font-bold">
+<span class="bg-surface-container-lowest px-4 text-outline">Hoặc</span>
+</div>
+</div>
+<!-- Google Sign In -->
+<button class="w-full flex items-center justify-center gap-3 py-4 rounded-xl border border-outline-variant hover:bg-surface-container transition-colors active:scale-95">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="text-sm font-bold text-on-surface">Đăng nhập với Google</span>
+</button>
+<!-- Footer Action -->
+<p class="mt-8 text-center text-sm text-on-surface-variant">
+                    Chưa có tài khoản? 
+                    <a class="text-primary font-bold hover:underline underline-offset-4 ml-1" href="#">Đăng ký ngay</a>
+</p>
+</div>
+</div>
+</main>
+<!-- Footer Suppressed for Transactional screen (Login) as per Shell Visibility Rule -->
+<!-- Branding Accent -->
+<div class="fixed bottom-8 text-on-surface-variant/30 font-black italic text-4xl select-none pointer-events-none">
+        ChoTot
+    </div>
+</body></html>

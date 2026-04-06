@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 import { MUIProvider, QueryProvider, AuthProvider, NavigationProgressProvider } from "@/components/providers";
-import { Header, Footer } from "@/components/layout";
-import { Box } from "@mui/material";
+import { AppShell } from "@/components/layout";
 import { Suspense } from "react";
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
+const beVietnamPro = Be_Vietnam_Pro({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
 });
@@ -43,25 +42,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={roboto.className}>
+      <head>
+        {/* Material Symbols Outlined for MD3 icons */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={beVietnamPro.className}>
         <AuthProvider>
           <QueryProvider>
             <MUIProvider>
               <Suspense>
                 <NavigationProgressProvider>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      minHeight: '100vh',
-                    }}
-                  >
-                    <Header />
-                    <Box component="main" sx={{ flexGrow: 1 }}>
-                      {children}
-                    </Box>
-                    <Footer />
-                  </Box>
+                  <AppShell>
+                    {children}
+                  </AppShell>
                 </NavigationProgressProvider>
               </Suspense>
             </MUIProvider>

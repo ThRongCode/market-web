@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quên mật khẩu | ChoTot Digital Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#fffbff",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#07006c",
+              "surface-dim": "#dbd8e4",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1b1b23",
+              "surface-container-high": "#e9e6f3",
+              "surface": "#fcf8ff",
+              "primary-fixed": "#e1e0ff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#6063ee",
+              "inverse-primary": "#c0c1ff",
+              "secondary-fixed": "#e1e0ff",
+              "on-tertiary-fixed-variant": "#703700",
+              "on-surface": "#1b1b23",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "on-error": "#ffffff",
+              "outline": "#767586",
+              "tertiary-fixed-dim": "#ffb783",
+              "primary": "#4648d4",
+              "outline-variant": "#c7c4d7",
+              "inverse-on-surface": "#f2effb",
+              "tertiary-container": "#b55d00",
+              "surface-container-highest": "#e4e1ed",
+              "on-secondary-fixed-variant": "#404178",
+              "on-secondary-container": "#494b83",
+              "surface-container": "#efecf8",
+              "secondary-fixed-dim": "#c0c1ff",
+              "error-container": "#ffdad6",
+              "secondary-container": "#bdbefe",
+              "inverse-surface": "#303038",
+              "on-secondary-fixed": "#13144a",
+              "tertiary-fixed": "#ffdcc5",
+              "surface-container-low": "#f5f2fe",
+              "surface-variant": "#e4e1ed",
+              "secondary": "#575992",
+              "error": "#ba1a1a",
+              "surface-bright": "#fcf8ff",
+              "on-surface-variant": "#464554",
+              "background": "#fcf8ff",
+              "on-tertiary-fixed": "#301400",
+              "primary-fixed-dim": "#c0c1ff",
+              "surface-tint": "#494bd6",
+              "on-error-container": "#93000a",
+              "tertiary": "#904900",
+              "on-primary-container": "#fffbff"
+            },
+            fontFamily: {
+              "headline": ["Be Vietnam Pro"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .signature-gradient {
+        background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+      }
+      .tonal-lift {
+        box-shadow: 0 32px 64px -12px rgba(27, 27, 35, 0.06);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen flex flex-col">
+<main class="flex-grow flex items-center justify-center px-6 py-12">
+<div class="w-full max-w-md">
+<!-- Brand Anchor -->
+<div class="flex flex-col items-center mb-10">
+<div class="text-3xl font-black text-primary italic tracking-tight mb-2">ChoTot</div>
+<div class="text-xs font-label uppercase tracking-widest text-secondary">The Digital Curator</div>
+</div>
+<!-- Content Canvas -->
+<div class="bg-surface-container p-8 md:p-10 rounded-2xl tonal-lift relative overflow-hidden">
+<!-- Decorative tonal element -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<h1 class="text-2xl font-headline font-bold text-on-surface tracking-tight mb-2">Quên mật khẩu</h1>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">
+                        Nhập địa chỉ email đã đăng ký. Chúng tôi sẽ gửi hướng dẫn khôi phục tài khoản cho bạn.
+                    </p>
+<!-- Success State Alert (Hidden by default or shown contextually) -->
+<div class="mb-8 p-4 bg-secondary-container/30 border border-secondary-container rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="info">info</span>
+<p class="text-sm text-on-secondary-container font-medium">
+                            Nếu email tồn tại, bạn sẽ nhận được link đặt lại mật khẩu. Vui lòng kiểm tra cả hộp thư rác.
+                        </p>
+</div>
+<form action="#" class="space-y-6">
+<div class="space-y-2">
+<label class="block text-xs font-label uppercase tracking-wider text-on-surface-variant ml-1" for="email">Email của bạn</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="mail">mail</span>
+<input class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant focus:ring-2 focus:ring-primary rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder:text-outline/50 transition-all outline-none" id="email" placeholder="name@example.com" type="email"/>
+</div>
+</div>
+<button class="w-full signature-gradient text-on-primary font-headline font-bold py-4 rounded-xl active:scale-95 transition-all shadow-lg shadow-primary/20" type="submit">
+                            Gửi yêu cầu đặt lại
+                        </button>
+</form>
+<div class="mt-8 flex justify-center">
+<a class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-container transition-colors group" href="/auth/login">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:-translate-x-1" data-icon="arrow_back">arrow_back</span>
+                            Quay lại đăng nhập
+                        </a>
+</div>
+</div>
+</div>
+<!-- Editorial Footer (Simplified for Auth) -->
+<footer class="mt-12 text-center">
+<p class="text-xs font-label text-outline uppercase tracking-widest mb-4">Tin dùng bởi 10M+ người Việt</p>
+<div class="flex justify-center gap-6">
+<a class="text-xs text-outline hover:text-primary transition-colors" href="#">Trợ giúp</a>
+<a class="text-xs text-outline hover:text-primary transition-colors" href="#">Điều khoản</a>
+<a class="text-xs text-outline hover:text-primary transition-colors" href="#">Bảo mật</a>
+</div>
+</footer>
+</div>
+</main>
+<!-- Visual Background Element -->
+<div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-secondary-container/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-primary-container/10 rounded-full blur-[100px]"></div>
+</div>
+</body></html>

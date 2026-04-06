@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fcf8ff",
+              "surface-container-low": "#f5f2fe",
+              "secondary-container": "#bdbefe",
+              "on-primary-fixed": "#07006c",
+              "surface-container-highest": "#e4e1ed",
+              "primary-fixed": "#e1e0ff",
+              "surface-tint": "#494bd6",
+              "on-tertiary-container": "#fffbff",
+              "on-surface-variant": "#464554",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed-dim": "#ffb783",
+              "on-surface": "#1b1b23",
+              "tertiary-container": "#b55d00",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdcc5",
+              "on-secondary-fixed-variant": "#404178",
+              "primary-fixed-dim": "#c0c1ff",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#494b83",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#c0c1ff",
+              "on-tertiary-fixed": "#301400",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#e1e0ff",
+              "on-background": "#1b1b23",
+              "surface-container-high": "#e9e6f3",
+              "on-primary-container": "#fffbff",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "surface-container": "#efecf8",
+              "inverse-primary": "#c0c1ff",
+              "outline": "#767586",
+              "on-secondary-fixed": "#13144a",
+              "on-tertiary-fixed-variant": "#703700",
+              "surface-bright": "#fcf8ff",
+              "background": "#fcf8ff",
+              "primary-container": "#6063ee",
+              "primary": "#4648d4",
+              "on-error": "#ffffff",
+              "surface-dim": "#dbd8e4",
+              "inverse-on-surface": "#f2effb",
+              "secondary": "#575992",
+              "outline-variant": "#c7c4d7",
+              "inverse-surface": "#303038",
+              "surface-variant": "#e4e1ed",
+              "tertiary": "#904900"
+            },
+            fontFamily: {
+              "headline": ["Be Vietnam Pro"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- Persistent Side Rail (Desktop Only) -->
+<aside class="fixed left-0 top-0 h-full w-24 z-40 bg-surface-container dark:bg-slate-900 flex flex-col items-center py-8 gap-8 hidden md:flex">
+<div class="p-3">
+<span class="material-symbols-outlined text-indigo-600 text-3xl">home_work</span>
+</div>
+<nav class="flex flex-col items-center gap-8 w-full">
+<button class="text-slate-500 dark:text-slate-400 p-3 hover:scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-200 rounded-full p-3 hover:scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 p-3 hover:scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined">map</span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 p-3 hover:scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</nav>
+<button class="mt-auto bg-primary text-white p-4 rounded-2xl shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="md:ml-24 min-h-screen pb-24">
+<!-- Contextual Top Bar -->
+<header class="fixed top-0 right-0 left-0 md:left-24 h-16 bg-surface/80 backdrop-blur-xl z-50 px-6 flex justify-between items-center tonal-transition">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold text-lg tracking-tight">Chi tiết bất động sản</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<div class="max-w-7xl mx-auto px-4 md:px-8 pt-20 pb-12">
+<!-- Bento Gallery Section -->
+<section class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[300px] md:h-[500px] mb-8">
+<div class="md:col-span-3 md:row-span-2 relative overflow-hidden rounded-2xl group">
+<img alt="Main Property Image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="luxury modern minimalist living room with floor-to-ceiling windows overlooking a city skyline at dusk with warm interior lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLVvJoucj7yR8KIRd8PgsyBkA1AkaUT_SllLFhDvR6A0xqjeQiVQgzjMEAtNSpqyWEcyLWPNzJo3JwE1_0IDwrF64_Wme_kKziGWktoGvH9jGlzvkQb-LgX_Pk-OzafS5qPbaapRnJyHtQGjuc2fGaIrYIJTwSvXa4-EY2DdLSKay6BFIKCD-gUBTbi6KyFSzHwk-Uo25PJw8VKva1xjUY5eYE800mK2MXLKTx5q75hTpJbXPBWViDIG-eDixakjMjIFeoxznFNec"/>
+<div class="absolute bottom-4 left-4 bg-on-surface/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm">
+                        1/12 ảnh
+                    </div>
+</div>
+<div class="hidden md:block relative overflow-hidden rounded-2xl group">
+<img alt="Property Detail 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="ultra-modern designer kitchen with marble countertops and sleek dark wood cabinets in bright daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ-otQPPPlo2vNdrV1Xij8KiHgjL5NKnH5ZPnh87-uubAAE8ySfO9PqgF2d_lMmM6XSCYDcV0IbgwwqqI0n7SU2Ar9WRVy7drhRZ5cGFJV8bnFmNIcZr7DzRNWu4G_z3wwRS1aqNlIFWHqx3fy7khJBdtqGpfQNDoSIMEQIkigvYcpr_xtSXcIe7ULCb6atKFI39A0eCm6wkuj2z0YbW7kHGeWddT0pJf7U8HAnai-h9EhIlAA2lADs4ODW0lASUAcWDmSRssVb1w"/>
+</div>
+<div class="hidden md:block relative overflow-hidden rounded-2xl group">
+<img alt="Property Detail 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="elegant primary bedroom with plush neutral bedding and a large window showing a private garden view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGFwyqDWvTLIBCY41oqfWKYFU_I7sUXyt2vIsRoPD3HnonICFWscrHpi-MeCqjST8YqLeBOzwL7OF-b7el9T_J-YlomZvtCkJvUBHksluaZ7XgcK8C5ijpp9HBaIcCMN0DnW7QENL_YW9RmQo_8q-fprmbLCP41UuOXZDrWBaFWbNHtHfP4hrD8lpNZ3HR_F6II4w6nCSM6YiFkCj9Ipv3nWAq2HouHKZEaJKmLmSwN0BSuigsbKu5VQ16bN9lY1i6V_G0dPLP710"/>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+<span class="text-white font-bold text-lg">+9 ảnh</span>
+</div>
+</div>
+</section>
+<!-- Grid Layout for Content & Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Main Details -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Main Content Card -->
+<div class="bg-surface-container-lowest p-6 md:p-8 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Tin ưu tiên</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full text-xs font-medium">Chung cư cao cấp</span>
+</div>
+<h2 class="font-headline text-2xl md:text-3xl font-bold text-on-surface leading-tight">
+                                Căn hộ Vinhomes Grand Park 3PN - View Công Viên Ánh Sáng
+                            </h2>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-sm font-medium">Quận 9, Thành phố Hồ Chí Minh</span>
+</div>
+<div class="mt-2">
+<span class="text-3xl font-black text-primary tracking-tighter">4.2 tỷ</span>
+<span class="text-on-surface-variant text-sm font-medium ml-2">~ 42.5 triệu/m²</span>
+</div>
+<!-- Property Specs Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center gap-1 border border-outline-variant/5">
+<span class="material-symbols-outlined text-primary mb-1">aspect_ratio</span>
+<span class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">Diện tích</span>
+<span class="font-bold text-on-surface">98 m²</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center gap-1 border border-outline-variant/5">
+<span class="material-symbols-outlined text-primary mb-1">bed</span>
+<span class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">Phòng ngủ</span>
+<span class="font-bold text-on-surface">3 PN</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center gap-1 border border-outline-variant/5">
+<span class="material-symbols-outlined text-primary mb-1">bathtub</span>
+<span class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">WC</span>
+<span class="font-bold text-on-surface">2 WC</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center gap-1 border border-outline-variant/5">
+<span class="material-symbols-outlined text-primary mb-1">explore</span>
+<span class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">Hướng cửa</span>
+<span class="font-bold text-on-surface">Đông Nam</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Description Section -->
+<div class="bg-surface-container-low p-6 md:p-8 rounded-2xl border border-outline-variant/10">
+<h3 class="font-headline font-bold text-lg mb-4 text-on-surface">Mô tả chi tiết</h3>
+<div class="text-on-surface-variant leading-relaxed space-y-4 font-normal text-md">
+<p>Cần bán gấp căn hộ Vinhomes Grand Park, phân khu The Rainbow. Căn góc view trực diện công viên 36ha cực đẹp và thoáng mát.</p>
+<ul class="list-disc pl-5 space-y-2">
+<li>Nội thất cơ bản từ chủ đầu tư, đã có rèm và máy lạnh.</li>
+<li>Sổ hồng chính chủ, sang tên nhanh chóng.</li>
+<li>Hỗ trợ vay ngân hàng lên đến 70% giá trị căn hộ.</li>
+</ul>
+<p>Tiện ích nội khu đẳng cấp: Công viên ánh sáng, biển hồ nhân tạo, trường học Vinschool, bệnh viện Vinmec, trung tâm thương mại Vincom Mega Mall...</p>
+</div>
+<button class="mt-6 text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                            Xem thêm <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<!-- Map Section -->
+<div class="bg-surface-container-highest rounded-2xl overflow-hidden aspect-video relative group border border-outline-variant/20 shadow-inner">
+<img alt="Location Map" class="w-full h-full object-cover" data-alt="abstract stylized aerial map showing city streets and urban layout in soft muted tones" data-location="District 9, Ho Chi Minh City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTBJvUFqv4nlBRsArnMKMGeScvwZ0PI0DF7cyfSNH7YXaTPobqRwwnShqf_YLkyaHUTkUXrQOITx6BfuS33Bvj9b2VYeN_MDasdj03wBzpYOm7q_m8qyfKaLwULOlltdFj-7_1WPactH6ibFV8fvpBzXWbsWd3c3Io0qLvBEtDG_4StrtJVDA65IcoX-zl2ufZfZI4lw-xB0nNIIOi8x4d33g5BmRNdp_5ICpkMPhY6lg13oAdqodfRc-70g4qUbTEij9IZYYDxXg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-center">
+<div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">location_on</span>
+</div>
+<span class="font-bold text-on-surface text-sm">Vinhomes Grand Park, Quận 9</span>
+</div>
+<button class="bg-primary text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">directions</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar -->
+<aside class="lg:col-span-4 sticky top-24 flex flex-col gap-4">
+<!-- Seller Card (MD3 Outlined) -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border-2 border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-4 mb-6">
+<div class="relative">
+<img alt="Seller Avatar" class="w-16 h-16 rounded-full object-cover border-2 border-primary-fixed" data-alt="professional portrait of a real estate agent with a friendly smile wearing a business casual outfit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW9ZzoNWKtGNlUlDUv2hqR590gSB_Eyn_ESn8W6Ib6_USmypf7uxAESAPAuP5ehoBx4p1hDDbnPkowuIYFBTgZpOID3G_Nlg3dcu-fxZJBF_RLvWIIM6RrHdXKuLadOHM0XgxlcoDEwNigl5UquEKXyKvRiXbEuX9njW1wrC8KQT_S2SpAMIW406NT2updQm8i8-XsG5XENX6_n1-yKuwlt9JX0dBJUdTwdMSBvOl2mzztj51XIa-FFbLWSzoAaKIE3AVdeAmFZlY"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div>
+<h4 class="font-bold text-lg text-on-surface">Nguyễn Anh Tuấn</h4>
+<div class="flex items-center gap-1 text-xs text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9 • Hoạt động 5 phút trước</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="bg-surface-container-low p-3 rounded-xl text-center">
+<span class="block text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Đánh giá</span>
+<span class="font-black text-primary">120+</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-xl text-center">
+<span class="block text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Đang bán</span>
+<span class="font-black text-primary">15 tin</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-md hover:bg-primary/90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">call</span>
+                                098****456
+                            </button>
+<button class="w-full border-2 border-outline-variant text-primary py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+                                Nhắn tin
+                            </button>
+</div>
+</div>
+<!-- Safety Tip Card -->
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-4 rounded-2xl flex gap-3 items-start border border-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-tertiary">shield_with_heart</span>
+<div class="flex flex-col gap-1">
+<span class="font-bold text-sm">Mẹo mua hàng an toàn</span>
+<p class="text-xs opacity-80 leading-relaxed">Không đặt cọc hoặc thanh toán trước khi xem bất động sản và giấy tờ pháp lý.</p>
+</div>
+</div>
+</aside>
+</div>
+<!-- Similar Properties / Footer Anchor -->
+<section class="mt-16">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-black text-xl tracking-tight">Tin rao tương tự</h3>
+<button class="text-primary font-bold text-sm">Xem tất cả</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Similar Card 1 -->
+<div class="bg-surface-container p-4 rounded-2xl group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
+<img alt="Similar Property" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="luxury apartment building exterior with large glass balconies and green terrace at sunrise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ-dI7-WgSfVHPR9wDD0SBkU0fUk1j4zbsVLMj6MEppRT6XNOP5Cxwdz7F9QbV5nSUw5Y1hahXiDV7yF5I8Q3tXmrrxM94h1mjKOaUJS0TlPgy_8oG_djYKa703XpG3r2Jcvl9K2gwNhhHDxzBDTPIHv3Cy736k3UC1eg6d0jYwe2vXxQ81iIXsnRdLgy5xwGrR5eU48q1bkGsAzJnbZwLh95303wh8irM5-iEBW2gDvegijc0JddShFyliQLdU1TLNspxDxnEUCE"/>
+</div>
+<h5 class="font-bold text-on-surface line-clamp-1">Vinhomes Grand Park - Phân khu Origami 2PN</h5>
+<div class="flex justify-between items-center mt-2">
+<span class="text-primary font-black">2.8 tỷ</span>
+<span class="text-on-surface-variant text-xs font-medium">67 m²</span>
+</div>
+</div>
+<!-- Similar Card 2 -->
+<div class="bg-surface-container p-4 rounded-2xl group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
+<img alt="Similar Property" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="contemporary apartment interior with large windows and wooden flooring in golden light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAstWMViVv2TFoLSAoG_jIwlhwe3m_bBEzGRSOPUOUaVW0hpj5306EcMNWETikr9eZRtGq4K7KaIiP5kxghDnVW2Y-Kvextiop3bnD6ESnVYytHorUDrIclODJU4npnYgSoG_SKwQ7HXCd3OpJaptxtdQigQtIjTkuIJ04_4LOJmwERlyAI6Jh3QjRR-ncY5Csc-KT2a6FxW9UuoSuRe_vigS48pRCtVWV8PFU1lnrS9D7XfTj6w2hpqNdmZo3zGyc0aedW-TJlB3Q"/>
+</div>
+<h5 class="font-bold text-on-surface line-clamp-1">Căn hộ Studio The Rainbow - Đầy đủ nội thất</h5>
+<div class="flex justify-between items-center mt-2">
+<span class="text-primary font-black">1.5 tỷ</span>
+<span class="text-on-surface-variant text-xs font-medium">35 m²</span>
+</div>
+</div>
+<!-- Similar Card 3 -->
+<div class="bg-surface-container p-4 rounded-2xl group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
+<img alt="Similar Property" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="minimalist modern sofa and chair in a bright airy living room with a large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0QcNfZIyE3fJcMpOoJtkMfVa_Inn34hXzQcqH7qlIDSm56HgXwNFxMK4LtjiGnHnYQGXaLx-t3ny_xpjFzIHcVY026CX79D_oBODJb5cKKscG0n5srMnuUJICFeg5Y09C_6IJEwDctZ3B-Ahim-y3izDYtCI000cc7hKZC1quaIXHiC-vnxCvene4B91j3dWGleBc40InTfimup_Mr2Gjls7GBIqe32Rdu2jk3MpWJMacAWRSjMXPkb6wFN8bkeFSJMknSsMbcm8"/>
+</div>
+<h5 class="font-bold text-on-surface line-clamp-1">Chủ cần bán gấp 3PN Origami view hồ bơi</h5>
+<div class="flex justify-between items-center mt-2">
+<span class="text-primary font-black">3.9 tỷ</span>
+<span class="text-on-surface-variant text-xs font-medium">102 m²</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full rounded-t-[2.5rem] mt-12 bg-surface-container-low dark:bg-slate-950">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-lg font-bold text-indigo-600">ChoTot Marketplace</span>
+<span class="font-be-vietnam-pro body-sm text-slate-500">© 2024 ChoTot Marketplace. Built with Structured Fluidity.</span>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-400 hover:text-indigo-500 transition-colors" href="#">Về chúng tôi</a>
+<a class="text-slate-400 hover:text-indigo-500 transition-colors" href="#">Quy chế</a>
+<a class="text-slate-400 hover:text-indigo-500 transition-colors" href="#">Trợ giúp</a>
+<a class="text-slate-400 hover:text-indigo-500 transition-colors" href="#">Liên hệ</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Bottom Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/80 backdrop-blur-xl h-16 flex items-center justify-around z-50 px-4 border-t border-outline-variant/10">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Trang chủ</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Tìm kiếm</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">chat</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Tin nhắn</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Tôi bán</span>
+</button>
+</nav>
+</main>
+</body></html>

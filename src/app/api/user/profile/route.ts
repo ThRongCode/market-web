@@ -97,3 +97,42 @@ export async function GET(request: NextRequest) {
     return serverError(error);
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const { success } = rateLimit(getClientIp(request) + ':profile-delete', RATE_LIMITS.mutation);
+    if (!success) return rateLimited();
+
+    const session = await auth();
+
+    if (!session?.user?.id) {
+      return unauthorized();
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { id: session.user.id },
+    });
+
+    if (!user) {
+      return notFound('Không tìm thấy người dùng');
+    }
+
+    // Soft-delete all user's properties
+    await prisma.property.updateMany({
+      where: { userId: session.user.id },
+      data: { deletedAt: new Date() },
+    });
+
+    // Audit log before deletion (cascade will remove it, but it's logged)
+    await createAuditLog(session.user.id, 'DELETE', 'User', session.user.id);
+
+    // Delete the user (cascades to accounts, sessions, favorites, messages, reports, audit logs)
+    await prisma.user.delete({
+      where: { id: session.user.id },
+    });
+
+    return NextResponse.json({ message: 'Tài khoản đã được xóa thành công' });
+  } catch (error) {
+    return serverError(error);
+  }
+}

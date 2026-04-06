@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About ChoTot | The Digital Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-lift {
+            background-color: #ffffff;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .tonal-lift:hover {
+            background-color: #e9e6f3;
+            transform: scale(1.02);
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #fcf8ff;
+            color: #1b1b23;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-tertiary-container": "#fffbff",
+                "on-tertiary": "#ffffff",
+                "on-primary": "#ffffff",
+                "on-primary-fixed": "#07006c",
+                "surface-dim": "#dbd8e4",
+                "surface-container-lowest": "#ffffff",
+                "on-background": "#1b1b23",
+                "surface-container-high": "#e9e6f3",
+                "surface": "#fcf8ff",
+                "primary-fixed": "#e1e0ff",
+                "on-secondary": "#ffffff",
+                "primary-container": "#6063ee",
+                "inverse-primary": "#c0c1ff",
+                "secondary-fixed": "#e1e0ff",
+                "on-tertiary-fixed-variant": "#703700",
+                "on-surface": "#1b1b23",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "on-error": "#ffffff",
+                "outline": "#767586",
+                "tertiary-fixed-dim": "#ffb783",
+                "primary": "#4648d4",
+                "outline-variant": "#c7c4d7",
+                "inverse-on-surface": "#f2effb",
+                "tertiary-container": "#b55d00",
+                "surface-container-highest": "#e4e1ed",
+                "on-secondary-fixed-variant": "#404178",
+                "on-secondary-container": "#494b83",
+                "surface-container": "#efecf8",
+                "secondary-fixed-dim": "#c0c1ff",
+                "error-container": "#ffdad6",
+                "secondary-container": "#bdbefe",
+                "inverse-surface": "#303038",
+                "on-secondary-fixed": "#13144a",
+                "tertiary-fixed": "#ffdcc5",
+                "surface-container-low": "#f5f2fe",
+                "surface-variant": "#e4e1ed",
+                "secondary": "#575992",
+                "error": "#ba1a1a",
+                "surface-bright": "#fcf8ff",
+                "on-surface-variant": "#464554",
+                "background": "#fcf8ff",
+                "on-tertiary-fixed": "#301400",
+                "primary-fixed-dim": "#c0c1ff",
+                "surface-tint": "#494bd6",
+                "on-error-container": "#93000a",
+                "tertiary": "#904900",
+                "on-primary-container": "#fffbff"
+              },
+              fontFamily: {
+                "headline": ["Be Vietnam Pro"],
+                "body": ["Be Vietnam Pro"],
+                "label": ["Be Vietnam Pro"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation (Shell Implementation) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-indigo-600 italic">ChoTot</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 hover:text-indigo-500 font-be-vietnam-pro transition-all duration-200" href="#">Home</a>
+<a class="text-slate-500 hover:text-indigo-500 font-be-vietnam-pro transition-all duration-200" href="#">Properties</a>
+<a class="text-indigo-700 font-bold border-b-2 border-indigo-600 font-be-vietnam-pro" href="#">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-indigo-50 rounded-full transition-all"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 text-slate-500 hover:bg-indigo-50 rounded-full transition-all"><span class="material-symbols-outlined">chat</span></button>
+</div>
+<button class="signature-gradient text-white px-6 py-2 rounded-lg font-bold shadow-md hover:scale-105 active:scale-95 transition-all">Post Listing</button>
+</div>
+</header>
+<!-- Side Navigation Rail (Hidden on Mobile) -->
+<aside class="fixed left-0 top-0 h-full w-24 md:w-64 bg-slate-50 border-r-0 flex flex-col py-6 space-y-4 z-40 hidden md:flex pt-20">
+<div class="px-6 mb-8">
+<h2 class="text-indigo-600 font-bold text-lg">The Digital Curator</h2>
+<p class="text-slate-500 text-xs">Premium Marketplace</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-600 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">home</span>
+<span class="hidden md:inline">Home</span>
+</a>
+<a class="text-slate-600 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">domain</span>
+<span class="hidden md:inline">Properties</span>
+</a>
+<a class="bg-indigo-100 text-indigo-700 rounded-xl mx-2 flex items-center px-4 py-3" href="#">
+<span class="material-symbols-outlined mr-3">info</span>
+<span class="hidden md:inline">About</span>
+</a>
+<a class="text-slate-600 flex items-center px-4 py-3 mx-2 hover:bg-slate-200 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">favorite</span>
+<span class="hidden md:inline">Favorites</span>
+</a>
+</nav>
+<div class="px-4 py-6 border-t border-slate-200/50">
+<a class="text-slate-600 flex items-center px-4 py-3 hover:bg-slate-200 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="hidden md:inline">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 pb-12 px-6 lg:px-12 max-w-7xl mx-auto">
+<!-- Hero Section: Glassmorphism Editorial -->
+<section class="relative h-[500px] w-full rounded-xl overflow-hidden mb-16 bg-surface-container">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="luxury modern minimalist office interior with large windows, soft morning light, and lush indoor plants in high-end design style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjG_---IzglaTCVssFmt93Siz0BXJDLHeF98NaiSHaW9cY7yMX1sJzCMHiVYKM0aa2lfFlclKRD7YTpdpMz6D_Q5_tQ2oP32-H5XUbFyPBRQIHDG6itkTDtJMlxYCKnLQ6C9eg_VUwemWTh3WUAfnMKa694_yH2857L6Yk5DHAd83ofJcb9KqEu44vcHtcoMO4qxcSmtbnRp-FSYeyXpFLkoaserkhtue8eOYhj-negWSHLVbKAJIsbZzFHiWOMNQ3ddJn46kHgdk"/>
+<div class="absolute inset-0 bg-indigo-900/20 backdrop-blur-[2px]"></div>
+<div class="absolute inset-0 flex flex-col justify-center px-12 text-white">
+<span class="text-xs uppercase tracking-[0.2em] font-bold mb-4 opacity-90">Our Mission</span>
+<h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6 drop-shadow-lg">Curating the Future of <br/><span class="text-indigo-300">Sustainable Commerce.</span></h1>
+<p class="max-w-xl text-lg opacity-90 font-medium leading-relaxed">We believe every object has a second act. ChoTot is more than a marketplace; it's a digital curator for the modern, conscious consumer.</p>
+</div>
+</section>
+<!-- Bento Grid: Feature Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 bg-surface-container-high p-10 rounded-xl flex flex-col justify-between relative overflow-hidden group">
+<div class="z-10">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">bolt</span>
+<h3 class="text-3xl font-bold mb-4">Fast &amp; Seamless</h3>
+<p class="text-on-surface-variant max-w-md leading-relaxed">Our proprietary listing engine ensures your items go live in under 60 seconds. We've optimized every friction point to make the transition from 'listing' to 'sold' instantaneous.</p>
+</div>
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700"></div>
+</div>
+<!-- Vertical Feature Card -->
+<div class="bg-primary text-white p-10 rounded-xl flex flex-col justify-end space-y-6">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<h3 class="text-2xl font-bold">Absolute Trust</h3>
+<p class="opacity-80 text-sm">Verified profiles and secure communication protocols designed to keep the community safe and transparent.</p>
+</div>
+</div>
+<!-- Lifestyle Image Card -->
+<div class="rounded-xl overflow-hidden h-64 md:h-auto">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="diverse group of creative professionals collaborating around a light wood table in a sunlit modern workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHbDc07qVK6M1qNQkCsFjvM6WerVZFc5iMTas3Cam6cbTWrdCRR17mL_QMgT72N00GTaxmhcgk0N0wcfT-xa0WR290oCHU-Q2O-_dncqE-x9fhNvs0-3Or-UtoDvgWfQicMML3TLaSVoJd7vWGWMs5ZqX3scFvJ2jtqZeg0S2jHkqHIzDLNNvEN9xAS2Cpjuz0GOaAWn_M_AvOwllA8DhE7o7-FF6QK66aiFIbOiGhb2wUAJeouj3UyfNIIhcKGV30VLQGQh3xM_4"/>
+</div>
+<!-- Square Feature Card -->
+<div class="bg-tertiary-container text-white p-10 rounded-xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-4xl">inventory_2</span>
+<h3 class="text-2xl font-bold">100% Free Listings</h3>
+</div>
+<!-- Map/Community Card -->
+<div class="bg-surface-container-low p-10 rounded-xl flex flex-col justify-between border-0 shadow-sm">
+<div>
+<h3 class="text-xl font-bold mb-2">Local Impact</h3>
+<p class="text-on-surface-variant text-sm">Empowering neighborhoods across Vietnam to trade responsibly and locally.</p>
+</div>
+<div class="mt-8 rounded-lg overflow-hidden h-32 grayscale opacity-50">
+<img class="w-full h-full object-cover" data-alt="stylized minimalist map of a modern city with grid patterns and soft purple and grey tones" data-location="Ho Chi Minh City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAPXSdtOgKlda3jjMIvvieENY-akQe77bA2abDppBNHzpotwISYUDzc-DkIwBdGP_sG7KbVmvUXl07N5EhUkxUpegkWxkvO2z7PYFS3t2SG_bJkkX_W3QVhFBwoYDzHRAuRZA5UcGuUzzizqqd0aKEU4KvSDeWwBVu5XDkK0KBHtk3UEkFCGryWZLQbhNKvi4AJjlW9eeP7GYIJdy0spNAnZPfQ1HQFBIGhOOPyOWiPszaZwMs__6sM7mY15Z4Al4rqXg9J3UqFFE"/>
+</div>
+</div>
+</section>
+<!-- Brand Gradient / Contact Section -->
+<section class="signature-gradient rounded-xl p-12 md:p-20 text-white relative overflow-hidden">
+<div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-4xl font-black mb-6 tracking-tight">Let's build the <br/>future together.</h2>
+<p class="text-indigo-100 text-lg mb-8 max-w-md">Whether you're a partner, a journalist, or a curious buyer, we'd love to hear from you.</p>
+<div class="flex flex-col space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined text-sm">mail</span>
+</div>
+<span>hello@chotot.digital</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined text-sm">location_on</span>
+</div>
+<span>District 1, Ho Chi Minh City, VN</span>
+</div>
+</div>
+</div>
+<div class="bg-white/10 backdrop-blur-xl p-8 rounded-xl border border-white/10">
+<form class="space-y-4">
+<div>
+<label class="text-xs uppercase tracking-widest font-bold opacity-70">Your Name</label>
+<input class="w-full bg-white/10 border-0 rounded-lg p-3 text-white placeholder:text-white/40 focus:ring-2 focus:ring-white/50 transition-all mt-1" placeholder="Jane Doe" type="text"/>
+</div>
+<div>
+<label class="text-xs uppercase tracking-widest font-bold opacity-70">Inquiry Type</label>
+<select class="w-full bg-white/10 border-0 rounded-lg p-3 text-white focus:ring-2 focus:ring-white/50 transition-all mt-1">
+<option class="text-slate-900">General Information</option>
+<option class="text-slate-900">Partnership</option>
+<option class="text-slate-900">Press</option>
+</select>
+</div>
+<button class="w-full bg-white text-indigo-600 font-bold py-4 rounded-lg hover:bg-indigo-50 active:scale-95 transition-all shadow-xl" type="submit">Send Inquiry</button>
+</form>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+</section>
+</main>
+<!-- Footer (Shell Implementation) -->
+<footer class="md:ml-64 bg-slate-50 dark:bg-slate-950">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex flex-col gap-2">
+<span class="text-lg font-bold text-indigo-600">ChoTot</span>
+<p class="font-be-vietnam-pro text-xs text-slate-500">© 2024 ChoTot Digital Curator. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-be-vietnam-pro text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100" href="#">About</a>
+<a class="font-be-vietnam-pro text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100" href="#">Contact</a>
+<a class="font-be-vietnam-pro text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="font-be-vietnam-pro text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="font-be-vietnam-pro text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100" href="#">Careers</a>
+<a class="font-be-vietnam-pro text-xs text-slate-500 hover:text-indigo-500 underline underline-offset-4 opacity-80 hover:opacity-100" href="#">Help</a>
+</div>
+</div>
+</footer>
+<!-- FAB Suppression Rule: Hidden on About Page -->
+</body></html>

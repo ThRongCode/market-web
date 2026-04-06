@@ -2,281 +2,328 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  IconButton,
-  Divider,
-  Stack,
-  TextField,
-  Button,
-  alpha,
-  useTheme,
-} from '@mui/material';
-import {
-  Facebook,
-  YouTube,
-  Instagram,
-  Phone,
-  Email,
-  LocationOn,
-  Send,
-  Home as HomeIconBrand,
-} from '@mui/icons-material';
+import { Box, Typography, IconButton, alpha } from '@mui/material';
 import { useSettingsStore } from '@/lib/store';
-import { t } from '@/lib/i18n';
+import { CATEGORIES } from '@/types';
 import { gradients } from '@/lib/theme';
-import { SITE_CONFIG } from '@/lib/site-config';
 
+// ===========================================
+// Site contact config (centralized)
+// ===========================================
+
+const SITE_CONTACT = {
+  phone: '1900 1234',
+  email: 'support@chotot.com',
+  address: '123 Nguyễn Văn Linh, Quận 7, TP. HCM',
+};
+
+const SOCIAL_LINKS = [
+  { icon: 'public', label: 'Facebook', href: '#' },
+  { icon: 'smart_display', label: 'YouTube', href: '#' },
+  { icon: 'photo_camera', label: 'Instagram', href: '#' },
+];
+
+/** Footer link column definition */
+interface FooterColumn {
+  title: string;
+  links: { label: string; href: string }[];
+}
+
+// ===========================================
+// Newsletter Section
+// ===========================================
+
+function NewsletterSection({ language }: { language: 'vi' | 'en' }) {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubmitted(true);
+      setEmail('');
+      setTimeout(() => setSubmitted(false), 3000);
+    }
+  };
+
+  return (
+    <Box
+      sx={{
+        background: gradients.signature,
+        borderRadius: '1.5rem',
+        p: { xs: 4, md: 5 },
+        mb: 4,
+        display: 'flex',
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: { xs: 'flex-start', md: 'center' },
+        justifyContent: 'space-between',
+        gap: 3,
+      }}
+    >
+      <Box>
+        <Typography sx={{ color: 'white', fontWeight: 800, fontSize: '1.25rem', mb: 0.5 }}>
+          {language === 'vi' ? 'Đăng ký nhận tin' : 'Subscribe to updates'}
+        </Typography>
+        <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
+          {language === 'vi'
+            ? 'Nhận thông tin mới nhất về tin đăng và ưu đãi'
+            : 'Get the latest listings and deals delivered to your inbox'}
+        </Typography>
+      </Box>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{ display: 'flex', gap: 1, width: { xs: '100%', md: 'auto' } }}
+      >
+        {submitted ? (
+          <Typography sx={{ color: 'white', fontWeight: 600 }}>
+            ✓ {language === 'vi' ? 'Đã đăng ký thành công!' : 'Subscribed successfully!'}
+          </Typography>
+        ) : (
+          <>
+            <Box
+              component="input"
+              type="email"
+              value={email}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+              placeholder="Email..."
+              required
+              sx={{
+                px: 2.5,
+                py: 1.5,
+                bgcolor: 'rgba(255,255,255,0.9)',
+                border: 'none',
+                borderRadius: '0.5rem',
+                fontSize: '0.9rem',
+                fontFamily: 'inherit',
+                outline: 'none',
+                width: { xs: '100%', md: 260 },
+                color: '#1a1a2e',
+                '&::placeholder': { color: 'rgba(0,0,0,0.4)' },
+              }}
+            />
+            <Box
+              component="button"
+              type="submit"
+              sx={{
+                px: 3,
+                py: 1.5,
+                bgcolor: 'white',
+                color: 'primary.main',
+                border: 'none',
+                borderRadius: '0.5rem',
+                fontFamily: 'inherit',
+                fontWeight: 700,
+                fontSize: '0.9rem',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.9)' },
+              }}
+            >
+              {language === 'vi' ? 'Đăng ký' : 'Subscribe'}
+            </Box>
+          </>
+        )}
+      </Box>
+    </Box>
+  );
+}
+
+// ===========================================
+// Main Footer
+// ===========================================
+
+/**
+ * Footer — Site footer with tonal background per MD3 design.
+ *
+ * Structure: newsletter, logo, link columns (explore, support, contact),
+ * social icons, and copyright row.
+ */
 export default function Footer() {
-  const theme = useTheme();
   const { language } = useSettingsStore();
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
+
+  const exploreLinks = CATEGORIES.slice(0, 4).map((cat) => ({
+    label: language === 'vi' ? cat.label : cat.labelEn,
+    href: `/search?category=${cat.value}`,
+  }));
+  exploreLinks.push({
+    label: language === 'vi' ? 'Bản đồ' : 'Map',
+    href: '/map',
+  });
+
+  const columns: FooterColumn[] = [
+    {
+      title: language === 'vi' ? 'Khám phá' : 'Explore',
+      links: exploreLinks,
+    },
+    {
+      title: language === 'vi' ? 'Hỗ trợ' : 'Support',
+      links: [
+        { label: language === 'vi' ? 'Giới thiệu' : 'About Us', href: '/about' },
+        { label: language === 'vi' ? 'Liên hệ' : 'Contact', href: '/contact' },
+        { label: language === 'vi' ? 'Điều khoản' : 'Terms', href: '/terms' },
+        { label: language === 'vi' ? 'Bảo mật' : 'Privacy', href: '/privacy' },
+      ],
+    },
+  ];
 
   return (
     <Box
       component="footer"
       sx={{
-        bgcolor: theme.palette.mode === 'dark' ? '#0f172a' : '#1e293b',
-        color: 'grey.300',
-        pt: 8,
-        pb: 4,
-        mt: 'auto',
+        borderRadius: '2.5rem 2.5rem 0 0',
+        mt: 6,
+        bgcolor: (theme) => theme.md3.surfaceContainerLow,
       }}
     >
-      <Container maxWidth="lg">
-        {/* Newsletter Section */}
-        <Box
-          sx={{
-            bgcolor: alpha(theme.palette.primary.main, 0.1),
-            borderRadius: 4,
-            p: 4,
-            mb: 6,
-            border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
-          }}
-        >
-          <Grid container spacing={4} alignItems="center">
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Typography variant="h5" color="white" fontWeight={700} gutterBottom>
-                {language === 'vi' ? 'Đăng ký nhận tin' : 'Subscribe to Newsletter'}
-              </Typography>
-              <Typography variant="body2" color="grey.400">
-                {language === 'vi' 
-                  ? 'Nhận thông tin sản phẩm mới nhất và cơ hội tốt nhất'
-                  : 'Get the latest listings and best opportunities'}
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                <TextField
-                  fullWidth
-                  placeholder="Email"
-                  size="small"
-                  type="email"
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  disabled={newsletterSubmitted}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      bgcolor: alpha('#fff', 0.05),
-                      '& fieldset': { borderColor: alpha('#fff', 0.2) },
-                      '&:hover fieldset': { borderColor: alpha('#fff', 0.3) },
-                      '& input': { color: 'white' },
-                      '& input::placeholder': { color: 'grey.500' },
-                    },
-                  }}
-                />
-                <Button 
-                  variant="contained" 
-                  endIcon={<Send />}
-                  disabled={newsletterSubmitted || !newsletterEmail.trim()}
-                  onClick={() => {
-                    // TODO: Gọi API newsletter khi có endpoint
-                    setNewsletterSubmitted(true);
-                  }}
-                  sx={{ minWidth: 120, whiteSpace: 'nowrap' }}
-                >
-                  {newsletterSubmitted
-                    ? (language === 'vi' ? 'Đã đăng ký ✓' : 'Subscribed ✓')
-                    : (language === 'vi' ? 'Đăng ký' : 'Subscribe')}
-                </Button>
-              </Stack>
-            </Grid>
-          </Grid>
-        </Box>
+      {/* Newsletter */}
+      <Box sx={{ maxWidth: 1200, mx: 'auto', px: { xs: 3, md: 4 }, pt: { xs: 4, md: 6 } }}>
+        <NewsletterSection language={language} />
+      </Box>
 
-        <Grid container spacing={4}>
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
-              <Box
+      {/* Main content */}
+      <Box
+        sx={{
+          maxWidth: 1200,
+          mx: 'auto',
+          px: { xs: 3, md: 4 },
+          py: { xs: 4, md: 5 },
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          gap: { xs: 4, md: 6 },
+        }}
+      >
+        {/* Brand column */}
+        <Box sx={{ maxWidth: 280 }}>
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: 800, color: 'primary.main', mb: 2, letterSpacing: '-0.02em' }}
+          >
+            ChoTot
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.8 }}
+          >
+            {language === 'vi'
+              ? 'Nền tảng mua bán trực tuyến hàng đầu Việt Nam với hàng ngàn sản phẩm đa dạng.'
+              : "Vietnam's leading online marketplace with thousands of diverse products."}
+          </Typography>
+          {/* Social icons */}
+          <Box sx={{ display: 'flex', gap: 1.5 }}>
+            {SOCIAL_LINKS.map((social) => (
+              <IconButton
+                key={social.label}
+                component="a"
+                href={social.href}
+                aria-label={social.label}
                 sx={{
                   width: 40,
                   height: 40,
-                  borderRadius: '12px',
-                  background: gradients.primary,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  borderRadius: '9999px',
+                  bgcolor: (theme) => theme.md3.surfaceContainer,
+                  '&:hover': {
+                    bgcolor: 'primary.main',
+                    color: 'primary.contrastText',
+                  },
+                  transition: 'all 0.2s ease',
                 }}
               >
-                <HomeIconBrand sx={{ fontSize: 24, color: 'white' }} />
-              </Box>
-              <Typography variant="h5" color="white" fontWeight={700}>
-                ChoTot
+                <Box component="span" className="material-symbols-outlined" sx={{ fontSize: 20 }}>
+                  {social.icon}
+                </Box>
+              </IconButton>
+            ))}
+          </Box>
+        </Box>
+
+        {/* Link columns + contact */}
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)' },
+            gap: { xs: 3, md: 8 },
+          }}
+        >
+          {columns.map((col) => (
+            <Box key={col.title}>
+              <Typography
+                variant="subtitle2"
+                sx={{ fontWeight: 700, color: 'primary.main', mb: 2 }}
+              >
+                {col.title}
               </Typography>
-            </Stack>
-            <Typography variant="body2" sx={{ mb: 3, lineHeight: 1.8 }}>
-              {language === 'vi'
-                ? 'Chợ trực tuyến hàng đầu Việt Nam. Mua bán bất động sản, xe cộ, điện tử, thời trang và nhiều hơn nữa.'
-                : 'Vietnam\'s leading online marketplace. Buy and sell real estate, vehicles, electronics, fashion and more.'}
-            </Typography>
-            <Stack direction="row" spacing={1}>
-              {[
-                { Icon: Facebook, href: SITE_CONFIG.social.facebook },
-                { Icon: YouTube, href: SITE_CONFIG.social.youtube },
-                { Icon: Instagram, href: SITE_CONFIG.social.instagram },
-              ].map(({ Icon, href }) => (
-                <IconButton
-                  key={href}
-                  component="a"
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ 
-                    color: 'grey.400',
-                    bgcolor: alpha('#fff', 0.05),
-                    '&:hover': { 
-                      bgcolor: 'primary.main',
-                      color: 'white',
-                      transform: 'translateY(-4px)',
-                    },
-                    transition: 'all 0.3s ease',
-                  }}
-                >
-                  <Icon />
-                </IconButton>
-              ))}
-            </Stack>
-          </Grid>
+              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0, display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                {col.links.map((link) => (
+                  <li key={link.href + link.label}>
+                    <Link href={link.href} style={{ textDecoration: 'none' }}>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: 'text.secondary',
+                          '&:hover': { color: 'primary.main' },
+                          transition: 'color 0.2s ease',
+                        }}
+                      >
+                        {link.label}
+                      </Typography>
+                    </Link>
+                  </li>
+                ))}
+              </Box>
+            </Box>
+          ))}
 
-          <Grid size={{ xs: 6, sm: 4, md: 2 }}>
-            <Typography variant="subtitle1" color="white" fontWeight={600} gutterBottom>
-              {language === 'vi' ? 'Khám phá' : 'Explore'}
-            </Typography>
-            <Stack spacing={1.5} sx={{ mt: 2 }}>
-              {[
-                { label: language === 'vi' ? 'Bất động sản' : 'Real Estate', href: '/search?category=REAL_ESTATE' },
-                { label: language === 'vi' ? 'Xe cộ' : 'Vehicles', href: '/search?category=VEHICLES' },
-                { label: language === 'vi' ? 'Điện tử' : 'Electronics', href: '/search?category=ELECTRONICS' },
-                { label: language === 'vi' ? 'Xem bản đồ' : 'Map View', href: '/map' },
-              ].map((item) => (
-                <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
-                  <Typography 
-                    variant="body2" 
-                    sx={{ 
-                      color: 'grey.400', 
-                      '&:hover': { color: 'primary.main', pl: 1 },
-                      transition: 'all 0.2s ease',
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                </Link>
-              ))}
-            </Stack>
-          </Grid>
-
-          <Grid size={{ xs: 6, sm: 4, md: 2 }}>
-            <Typography variant="subtitle1" color="white" fontWeight={600} gutterBottom>
-              {language === 'vi' ? 'Hỗ trợ' : 'Support'}
-            </Typography>
-            <Stack spacing={1.5} sx={{ mt: 2 }}>
-              {[
-                { label: language === 'vi' ? 'Về chúng tôi' : 'About Us', href: '/about' },
-                { label: language === 'vi' ? 'Liên hệ' : 'Contact', href: '/contact' },
-                { label: language === 'vi' ? 'Điều khoản' : 'Terms', href: '/terms' },
-                { label: language === 'vi' ? 'Chính sách bảo mật' : 'Privacy', href: '/privacy' },
-              ].map((item) => (
-                <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
-                  <Typography 
-                    variant="body2" 
-                    sx={{ 
-                      color: 'grey.400', 
-                      '&:hover': { color: 'primary.main', pl: 1 },
-                      transition: 'all 0.2s ease',
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                </Link>
-              ))}
-            </Stack>
-          </Grid>
-
-          <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-            <Typography variant="subtitle1" color="white" fontWeight={600} gutterBottom>
+          {/* Contact info column */}
+          <Box>
+            <Typography
+              variant="subtitle2"
+              sx={{ fontWeight: 700, color: 'primary.main', mb: 2 }}
+            >
               {language === 'vi' ? 'Liên hệ' : 'Contact'}
             </Typography>
-            <Stack spacing={2} sx={{ mt: 2 }}>
-              {[
-                { icon: LocationOn, text: SITE_CONFIG.contact.address },
-                { icon: Phone, text: SITE_CONFIG.contact.phone },
-                { icon: Email, text: SITE_CONFIG.contact.email },
-              ].map((item, index) => (
-                <Stack key={index} direction="row" spacing={1.5} alignItems="center">
-                  <Box
-                    sx={{
-                      p: 1,
-                      borderRadius: 2,
-                      bgcolor: alpha('#fff', 0.05),
-                    }}
-                  >
-                    <item.icon sx={{ fontSize: 18, color: 'primary.main' }} />
-                  </Box>
-                  <Typography variant="body2" color="grey.400">
-                    {item.text}
-                  </Typography>
-                </Stack>
-              ))}
-            </Stack>
-          </Grid>
-        </Grid>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Box component="span" className="material-symbols-outlined" sx={{ fontSize: 18, color: 'primary.main' }}>call</Box>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>{SITE_CONTACT.phone}</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Box component="span" className="material-symbols-outlined" sx={{ fontSize: 18, color: 'primary.main' }}>mail</Box>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>{SITE_CONTACT.email}</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                <Box component="span" className="material-symbols-outlined" sx={{ fontSize: 18, color: 'primary.main', mt: 0.25 }}>location_on</Box>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>{SITE_CONTACT.address}</Typography>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
 
-        <Divider sx={{ my: 4, borderColor: alpha('#fff', 0.1) }} />
-
-        <Stack 
-          direction={{ xs: 'column', sm: 'row' }} 
-          justifyContent="space-between" 
-          alignItems="center"
-          spacing={2}
-        >
-          <Typography variant="body2" color="grey.500">
-            © {new Date().getFullYear()} ChoTot. {language === 'vi' ? 'Tất cả quyền được bảo lưu.' : 'All rights reserved.'}
-          </Typography>
-          <Stack direction="row" spacing={3}>
-            {[
-              { label: 'Privacy', href: '/privacy' },
-              { label: 'Terms', href: '/terms' },
-            ].map((item) => (
-              <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
-                <Typography 
-                  variant="body2" 
-                  sx={{ 
-                    color: 'grey.500',
-                    '&:hover': { color: 'grey.300' },
-                    transition: 'color 0.2s',
-                  }}
-                >
-                  {item.label}
-                </Typography>
-              </Link>
-            ))}
-          </Stack>
-        </Stack>
-      </Container>
+      {/* Copyright bar */}
+      <Box
+        sx={{
+          borderTop: (theme) => `1px solid ${alpha(theme.md3.outlineVariant, 0.15)}`,
+          py: 3,
+          px: { xs: 3, md: 4 },
+          textAlign: 'center',
+        }}
+      >
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          © {new Date().getFullYear()} ChoTot Marketplace.{' '}
+          {language === 'vi' ? 'Tất cả quyền được bảo lưu.' : 'All rights reserved.'}
+          {' '}
+          <Link href="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>
+            {language === 'vi' ? 'Bảo mật' : 'Privacy'}
+          </Link>
+          {' | '}
+          <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>
+            {language === 'vi' ? 'Điều khoản' : 'Terms'}
+          </Link>
+        </Typography>
+      </Box>
     </Box>
   );
 }

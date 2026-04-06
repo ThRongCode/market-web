@@ -44,7 +44,7 @@ export default function MapContent() {
   const [drawerOpen, setDrawerOpen] = useState(!isMobile);
   const { filters } = useSearchStore();
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['properties-map', filters],
     queryFn: () => fetchPropertiesWithLocation(filters as unknown as Record<string, unknown>),
   });
@@ -85,7 +85,7 @@ export default function MapContent() {
           <SearchFilters variant="vertical" />
           
           <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
-            Hiển thị {propertiesWithLocation.length} tin đăng trên bản đồ
+            {isLoading ? 'Đang tải...' : `Hiển thị ${propertiesWithLocation.length} tin đăng trên bản đồ`}
           </Typography>
         </Box>
       </Drawer>
@@ -136,8 +136,10 @@ export default function MapContent() {
                   <Typography variant="caption" display="block" sx={{ mb: 1 }}>
                     {property.district}, {property.city}
                   </Typography>
-                  <Link href={`/properties/${property.id}`} style={{ color: '#1976d2' }}>
-                    Xem chi tiết →
+                  <Link href={`/properties/${property.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                    <Typography variant="caption" color="primary" sx={{ fontWeight: 600, '&:hover': { textDecoration: 'underline' } }}>
+                      Xem chi tiết →
+                    </Typography>
                   </Link>
                 </Box>
               </Popup>

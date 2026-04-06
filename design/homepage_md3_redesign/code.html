@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fcf8ff",
+              "surface-container-low": "#f5f2fe",
+              "secondary-container": "#bdbefe",
+              "on-primary-fixed": "#07006c",
+              "surface-container-highest": "#e4e1ed",
+              "primary-fixed": "#e1e0ff",
+              "surface-tint": "#494bd6",
+              "on-tertiary-container": "#fffbff",
+              "on-surface-variant": "#464554",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed-dim": "#ffb783",
+              "on-surface": "#1b1b23",
+              "tertiary-container": "#b55d00",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdcc5",
+              "on-secondary-fixed-variant": "#404178",
+              "primary-fixed-dim": "#c0c1ff",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#494b83",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#c0c1ff",
+              "on-tertiary-fixed": "#301400",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#e1e0ff",
+              "on-background": "#1b1b23",
+              "surface-container-high": "#e9e6f3",
+              "on-primary-container": "#fffbff",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "surface-container": "#efecf8",
+              "inverse-primary": "#c0c1ff",
+              "outline": "#767586",
+              "on-secondary-fixed": "#13144a",
+              "on-tertiary-fixed-variant": "#703700",
+              "surface-bright": "#fcf8ff",
+              "background": "#fcf8ff",
+              "primary-container": "#6063ee",
+              "primary": "#4648d4",
+              "on-error": "#ffffff",
+              "surface-dim": "#dbd8e4",
+              "inverse-on-surface": "#f2effb",
+              "secondary": "#575992",
+              "outline-variant": "#c7c4d7",
+              "inverse-surface": "#303038",
+              "surface-variant": "#e4e1ed",
+              "tertiary": "#904900"
+            },
+            fontFamily: {
+              "headline": ["Be Vietnam Pro"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #fcf8ff; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .glass-nav { backdrop-filter: blur(20px); }
+      .tonal-transition { transition: background-color 0.3s ease; }
+      .bento-card { transition: transform 0.2s ease, background-color 0.2s ease; }
+      .bento-card:hover { transform: scale(1.02); }
+      .no-line { border: none !important; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Persistent Side Rail (Desktop) -->
+<nav class="hidden md:flex fixed left-0 top-0 h-full w-24 z-40 bg-surface-container flex-col items-center py-8 gap-8 tonal-shift border-none">
+<div class="mb-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<!-- Trang chủ Active -->
+<a class="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-200 rounded-full p-3 hover:scale-110 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 p-3 hover:scale-110 transition-transform duration-200 hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 p-3 hover:scale-110 transition-transform duration-200 hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 p-3 hover:scale-110 transition-transform duration-200 hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</a>
+<div class="mt-auto">
+<button class="w-12 h-12 rounded-2xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center shadow-lg hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</nav>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl h-16 flex justify-between items-center px-6 md:pl-32 no-line tonal-transition bg-surface-container-low">
+<div class="text-2xl font-black text-indigo-600 tracking-tighter font-headline">ChoTot</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-container-high text-on-surface-variant hover:bg-indigo-50 transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+</button>
+<button class="px-6 py-2 rounded-xl bg-primary text-on-primary font-semibold text-sm tracking-tight active:scale-95 duration-200 shadow-sm">
+                Đăng tin
+            </button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a professional young man with a friendly smile, clean studio lighting, modern tech vibe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9hUgR1HWS2TNk2-f8NGbGE01Tn8wfvnpu59m2ojvAZlyHw779V5XWqPNWh6Cu9D007rW8mYyORKL15z9_kwCbxgxHP4JIzIiZr1V6Z62f6bW3LYJaWakD_3jvqiHTzA3Xlp-aQgYHJF7OzezZo5BT6HpbPCNozaLU2VvGayxEwUhPwlkEsJIVUd4I_x0H2VPSNkw9mj6kKCIlezgVWe1xyvSshawsGcx27ZGgL_b_NmyLjv3P5Ka3EgVHCZ2tDfuh_sKQxAdVnkw"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-24 pt-16 min-h-screen">
+<!-- Hero Section -->
+<section class="px-6 py-8">
+<div class="relative w-full h-[400px] rounded-2xl overflow-hidden flex items-center px-8 md:px-16 bg-gradient-to-br from-primary to-primary-container">
+<div class="absolute inset-0 opacity-20">
+<img alt="Marketplace Background" class="w-full h-full object-cover mix-blend-overlay" data-alt="abstract artistic background with flowing silk textures in deep indigo and violet colors, soft ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwdfdK0AWL6pdZGDddPhcDOo4o89DzCp_xNRUBVo5xZ0YHCMni-K3t5-y5yUFf4dxpk9Sc1Rz9mnsAvtIMeniPQfPg7wVjLTgaZ34toRj5mwLKsS4ei-pga2F8HO-MMWQtV35BKGvgoFJiE8DN4Gf-5z0aYzGJEhwHhJT6oBQ3HzKRROg5_ibPoH5TTo3tDw6gKsfT-ZmY6ulq4MnZwviZEaKPi8jqbWTzqGU5bK5pwIf5hpJwhRXbUtzTSfN9XREfj7QEz3Yt0CM"/>
+</div>
+<div class="relative z-10 max-w-2xl">
+<span class="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold tracking-widest uppercase mb-4">Vietnam's Premium Market</span>
+<h1 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter mb-4 font-headline">Mua bán, trao đổi dễ dàng</h1>
+<p class="text-white/80 text-lg md:text-xl font-medium mb-8">Vietnamese online marketplace for the modern digital curator.</p>
+<div class="flex gap-4">
+<button class="px-8 py-3 bg-white text-primary rounded-xl font-bold hover:bg-surface-container-lowest transition-colors">Khám phá ngay</button>
+<button class="px-8 py-3 border border-white/30 text-white rounded-xl font-bold hover:bg-white/10 transition-colors">Tìm hiểu thêm</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="px-6 py-4">
+<div class="bg-surface-container-low rounded-2xl p-8 flex flex-wrap justify-around gap-8 text-center">
+<div>
+<div class="text-3xl font-black text-primary font-headline tracking-tighter">9+</div>
+<div class="text-sm font-medium text-on-surface-variant uppercase tracking-widest">Categories</div>
+</div>
+<div>
+<div class="text-3xl font-black text-primary font-headline tracking-tighter">1.2M+</div>
+<div class="text-sm font-medium text-on-surface-variant uppercase tracking-widest">Listings Daily</div>
+</div>
+<div>
+<div class="text-3xl font-black text-primary font-headline tracking-tighter">15M+</div>
+<div class="text-sm font-medium text-on-surface-variant uppercase tracking-widest">Active Users</div>
+</div>
+<div>
+<div class="text-3xl font-black text-primary font-headline tracking-tighter">100%</div>
+<div class="text-sm font-medium text-on-surface-variant uppercase tracking-widest">Verified Sellers</div>
+</div>
+</div>
+</section>
+<!-- Bento Category Grid -->
+<section class="px-6 py-12">
+<div class="flex justify-between items-end mb-8 pl-4 border-l-4 border-primary">
+<div>
+<h2 class="text-3xl font-black text-on-surface tracking-tighter font-headline uppercase">Danh mục nổi bật</h2>
+<p class="text-on-surface-variant font-medium">Tìm thấy chính xác những gì bạn đang tìm kiếm</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 gap-4 h-[800px] md:h-[500px]">
+<!-- Large Tile: Real Estate -->
+<div class="col-span-2 row-span-2 bento-card relative rounded-2xl overflow-hidden bg-gradient-to-tr from-indigo-100 to-white group cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+<img alt="Real Estate" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-40 group-hover:scale-105 transition-transform duration-500" data-alt="ultra-modern luxury villa with glass walls and a infinity pool at sunset, cinematic lighting, high-end editorial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARt5N7oR2KeFIGIwBV5qjGOSK31wzK_UQjehvdJG2xqtTFv-652Agky1sW3oDClYtgp7mPwGPgPhpN8MYpGqet_XffZ3lhN91u40UXS15_iMKQ3HKJb2h8rdyb2z1OFl3iLlwueolweCws2g1GdGtxRM6VrIXNcgNhneBZ0gjNmgkEnQmn2NuPnsdeE1vxLy_uf5mdJkg8-nJjfEyXovA8ve9p62hstgrfiNiidnrjF0IhLAag9QJS-LIjzj98AHDWfpNOQKscEbE"/>
+<div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-white via-white/80 to-transparent">
+<span class="text-xs font-bold text-primary tracking-widest uppercase mb-2 block">Bất động sản</span>
+<h3 class="text-2xl font-black text-on-surface tracking-tight mb-2">Nhà ở &amp; Căn hộ</h3>
+<p class="text-on-surface-variant text-sm font-medium">Hơn 50,000+ tin đăng mới mỗi ngày</p>
+</div>
+</div>
+<!-- Large Tile: Vehicles -->
+<div class="col-span-2 row-span-1 md:col-span-1 md:row-span-2 bento-card relative rounded-2xl overflow-hidden bg-gradient-to-br from-amber-50 to-white group cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+<img alt="Vehicles" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-30 group-hover:scale-105 transition-transform duration-500" data-alt="sleek dark sports car parked on a modern urban street at night with neon reflections on the polished surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCez7YmnC4jpkIGTXggF4-T6_wonqjL8QpwcBdpk8T_0QiTilO2GQuYKMNPwK32WPgdTvFuHO6uxNIDKYTvUGwcrpiOtyA4N_Hee_QiZdkCtRRcOkhfaFvTAqcZM6nIOeisNr8RhsV0nzDhHtpCdQ_lt8-w57qBOEyRrF29PXTVtS5QVTy7LYnOln_GMaKbbwbEcOhpbbHRF8Ta6HT9YLzVkx2AnW97XAYUMKprbqneKVW98ZqXSXHVJLQsfAdGFeNqaDjrxtOTjQ8"/>
+<div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-white via-white/60 to-transparent">
+<span class="text-xs font-bold text-tertiary tracking-widest uppercase mb-1 block">Xe cộ</span>
+<h3 class="text-xl font-bold text-on-surface tracking-tight">Ô tô &amp; Xe máy</h3>
+</div>
+</div>
+<!-- Small Tile: Electronics -->
+<div class="col-span-1 row-span-1 bento-card relative rounded-2xl overflow-hidden bg-indigo-50 flex flex-col justify-end p-6 group cursor-pointer">
+<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:-translate-y-2 transition-transform" data-icon="devices">devices</span>
+<h3 class="font-bold text-on-surface">Điện tử</h3>
+</div>
+<!-- Small Tile: Jobs -->
+<div class="col-span-1 row-span-1 bento-card relative rounded-2xl overflow-hidden bg-slate-100 flex flex-col justify-end p-6 group cursor-pointer">
+<span class="material-symbols-outlined text-slate-700 text-3xl mb-4 group-hover:-translate-y-2 transition-transform" data-icon="work">work</span>
+<h3 class="font-bold text-on-surface">Việc làm</h3>
+</div>
+</div>
+</section>
+<!-- Featured Listings slider-like grid -->
+<section class="px-6 py-12 bg-surface-container-low rounded-t-[2.5rem]">
+<div class="flex justify-between items-center mb-10 px-4">
+<h2 class="text-3xl font-black text-on-surface tracking-tighter font-headline uppercase">Tin đăng phổ biến</h2>
+<button class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all">Xem tất cả <span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-56 overflow-hidden relative">
+<img alt="MacBook Pro" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="modern silver laptop on a clean white desk with soft morning sunlight, minimal aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0ipKWh7IvIWNJyKL7rqZFbXWPFIay8EHQT3avY4juuGIdVi6s2EpbheVGXwHdo1iEUT5nXG90R66zBvqK3AXj0w3AUSAAavW_LnRhapIBPmlWwCrIg8GiwTLs4At1QwbeIHo6PL72xhFOAD86RH6hmvU9-7AmUGmAF8E-B-8v2_p_TsFzf1auphGWgYABn8BkjfFQlHQp_dnvH3zM0lSw1AS0aRS0FBMgXi8rmofehDGS_Ug6Mk32mL7GiPIjdo35FZIxlSd_4ps"/>
+<div class="absolute top-4 right-4 p-2 rounded-full bg-white/80 backdrop-blur-md text-error hover:bg-error hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-black uppercase tracking-widest text-primary bg-primary-fixed px-2 py-0.5 rounded">Mới 99%</span>
+<span class="text-xs font-medium text-on-surface-variant">2 giờ trước</span>
+</div>
+<h4 class="font-bold text-on-surface line-clamp-2 mb-4 group-hover:text-primary transition-colors">MacBook Pro 2021 M1 Pro 14 inch 16GB RAM 512GB SSD</h4>
+<div class="flex items-end justify-between">
+<div class="text-xl font-black text-tertiary font-headline">28.500.000đ</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                Quận 1, HCM
+                            </div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-56 overflow-hidden relative">
+<img alt="Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="spacious bright apartment living room with tall ceilings and large windows, contemporary minimalist furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDEfgoh9GQN43HUeMS9pNTtmQg8If_2ulfdHkS49e4kWkVVSGuz7S8uOfUyX7VXtvR6O8XDSsorOGbG0M1NSdF4rzw__e2i59nLIiHCuzQelVtymgj1muloPO0kDixNUwP3ad0ARIyLQ03p2jruerWsBOjK055pxX4szqLvH1XiBGU5Ypc71V9gSOttG00FZOig6FXK5UkjSuKaEgAMtGHINGP4KInk4Qvqurv-wryM-iUHZ1pev7K00CSDoRhSK8LxL_pKcYfjUA"/>
+<div class="absolute top-4 right-4 p-2 rounded-full bg-white/80 backdrop-blur-md text-on-surface-variant hover:bg-error hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-black uppercase tracking-widest text-on-secondary-fixed-variant bg-secondary-fixed px-2 py-0.5 rounded">Cho Thuê</span>
+<span class="text-xs font-medium text-on-surface-variant">15 phút trước</span>
+</div>
+<h4 class="font-bold text-on-surface line-clamp-2 mb-4 group-hover:text-primary transition-colors">Căn hộ Studio Vinhomes Central Park Full Nội Thất Cao Cấp</h4>
+<div class="flex items-end justify-between">
+<div class="text-xl font-black text-tertiary font-headline">12.000.000đ</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                Bình Thạnh
+                            </div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-56 overflow-hidden relative">
+<img alt="Motorcycle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="close-up of a high-performance motorcycle engine and fuel tank with chrome details and custom paint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcb2_75fpCBaYd8p6Rt2uviWWASMVy743sSP5L1dJNyCxpRALDxwJrrYYZBSul-fu6SY-cUllkwDoEHWIv5mBqriPUgP_kwSw4qiz_G3tYSg9YFDCNSfanktCpU4lzucNos-HtxzcUhxVE9kweZaghVb-bE7eS6yr9fQxAgQZPwG9foMY6E9Lt4myvlXqNPjimNAWKOYh3DF3utBR-DSdjeglr4NebqHo7jOK1auFr7k_GHSubHJPATLXiz0SHEa6Y47M3oLuXN2k"/>
+<div class="absolute top-4 right-4 p-2 rounded-full bg-white/80 backdrop-blur-md text-on-surface-variant hover:bg-error hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-black uppercase tracking-widest text-on-tertiary-fixed-variant bg-tertiary-fixed px-2 py-0.5 rounded">Ưu đãi</span>
+<span class="text-xs font-medium text-on-surface-variant">Hôm qua</span>
+</div>
+<h4 class="font-bold text-on-surface line-clamp-2 mb-4 group-hover:text-primary transition-colors">Honda SH 150i ABS 2022 Màu Trắng Chính Chủ Xe Đẹp</h4>
+<div class="flex items-end justify-between">
+<div class="text-xl font-black text-tertiary font-headline">88.500.000đ</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                Quận 7, HCM
+                            </div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-56 overflow-hidden relative">
+<img alt="Fashion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="stylish modern wool coat hanging on a designer wooden rack in a brightly lit boutique" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfe_m6PJSCaX_fDrF85AQnfBJ71s-7Vnue89OnR-hvJmbcRu17iR8nng3XkVrhi6hZdfLC24SmpIXtzUpOtfb7uyWScSalxJ9GYWKk-eD4sf7AkLwmRPnUZZURdtYBOLuGLR5dq9aqzZ1vnFZnbZgYXK7iIeL1jOSEQ88bYRaMLPXlmUqr6DDYH0r20XaQJFWP56zLEQ7M5E7mIlDL8m5xda2DhU14_aGgbm97EhveXZJx0-3DxxuusysNiJXqirPVir1HXHr4XLk"/>
+<div class="absolute top-4 right-4 p-2 rounded-full bg-white/80 backdrop-blur-md text-on-surface-variant hover:bg-error hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-black uppercase tracking-widest text-on-primary-fixed-variant bg-primary-fixed px-2 py-0.5 rounded">Cá nhân</span>
+<span class="text-xs font-medium text-on-surface-variant">Vừa xong</span>
+</div>
+<h4 class="font-bold text-on-surface line-clamp-2 mb-4 group-hover:text-primary transition-colors">Áo Khoác Nam Zara Auth New Tag Size L Dáng Regular</h4>
+<div class="flex items-end justify-between">
+<div class="text-xl font-black text-tertiary font-headline">750.000đ</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                Hai Bà Trưng, HN
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="md:ml-24 w-full rounded-t-[2.5rem] mt-12 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-xs">
+<div class="text-2xl font-bold text-indigo-600 mb-4">ChoTot</div>
+<p class="font-be-vietnam-pro body-sm text-slate-500 mb-6">Trải nghiệm mua sắm trực tuyến hàng đầu Việt Nam với Structured Fluidity và công nghệ hiện đại.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-16">
+<div>
+<h5 class="text-indigo-600 font-bold mb-4">Về chúng tôi</h5>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-indigo-500 transition-colors text-sm" href="#">Giới thiệu</a></li>
+<li><a class="text-slate-400 hover:text-indigo-500 transition-colors text-sm" href="#">Tuyển dụng</a></li>
+<li><a class="text-slate-400 hover:text-indigo-500 transition-colors text-sm" href="#">Truyền thông</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-indigo-600 font-bold mb-4">Quy chế</h5>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-indigo-500 transition-colors text-sm" href="#">Quy chế hoạt động</a></li>
+<li><a class="text-slate-400 hover:text-indigo-500 transition-colors text-sm" href="#">Chính sách bảo mật</a></li>
+<li><a class="text-slate-400 hover:text-indigo-500 transition-colors text-sm" href="#">Giải quyết khiếu nại</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-indigo-600 font-bold mb-4">Trợ giúp</h5>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-indigo-500 transition-colors text-sm" href="#">Trung tâm trợ giúp</a></li>
+<li><a class="text-slate-400 hover:text-indigo-500 transition-colors text-sm" href="#">An toàn mua bán</a></li>
+<li><a class="text-slate-400 hover:text-indigo-500 transition-colors text-sm" href="#">Liên hệ</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/15 py-6 px-8 text-center">
+<p class="font-be-vietnam-pro body-sm text-slate-500">© 2024 ChoTot Marketplace. Built with Structured Fluidity.</p>
+</div>
+</footer>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-surface/80 backdrop-blur-xl z-50 flex justify-around items-center h-16 px-4">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-[10px] font-bold uppercase">Search</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-[10px] font-bold uppercase">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="text-[10px] font-bold uppercase">Favorite</span>
+</a>
+</div>
+</body></html>

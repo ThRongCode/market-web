@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đăng ký tài khoản | ChoTot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#fffbff",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#07006c",
+              "surface-dim": "#dbd8e4",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1b1b23",
+              "surface-container-high": "#e9e6f3",
+              "surface": "#fcf8ff",
+              "primary-fixed": "#e1e0ff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#6063ee",
+              "inverse-primary": "#c0c1ff",
+              "secondary-fixed": "#e1e0ff",
+              "on-tertiary-fixed-variant": "#703700",
+              "on-surface": "#1b1b23",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "on-error": "#ffffff",
+              "outline": "#767586",
+              "tertiary-fixed-dim": "#ffb783",
+              "primary": "#4648d4",
+              "outline-variant": "#c7c4d7",
+              "inverse-on-surface": "#f2effb",
+              "tertiary-container": "#b55d00",
+              "surface-container-highest": "#e4e1ed",
+              "on-secondary-fixed-variant": "#404178",
+              "on-secondary-container": "#494b83",
+              "surface-container": "#efecf8",
+              "secondary-fixed-dim": "#c0c1ff",
+              "error-container": "#ffdad6",
+              "secondary-container": "#bdbefe",
+              "inverse-surface": "#303038",
+              "on-secondary-fixed": "#13144a",
+              "tertiary-fixed": "#ffdcc5",
+              "surface-container-low": "#f5f2fe",
+              "surface-variant": "#e4e1ed",
+              "secondary": "#575992",
+              "error": "#ba1a1a",
+              "surface-bright": "#fcf8ff",
+              "on-surface-variant": "#464554",
+              "background": "#fcf8ff",
+              "on-tertiary-fixed": "#301400",
+              "primary-fixed-dim": "#c0c1ff",
+              "surface-tint": "#494bd6",
+              "on-error-container": "#93000a",
+              "tertiary": "#904900",
+              "on-primary-container": "#fffbff"
+            },
+            fontFamily: {
+              "headline": ["Be Vietnam Pro"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+        }
+        .bento-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background min-h-screen flex items-center justify-center p-4 md:p-8">
+<!-- Auth Shell Suppression: No TopAppBar or SideNav as per task requirements for Transactional screen -->
+<main class="w-full max-w-5xl bento-container">
+<!-- Brand/Identity Card (Bento Cell 1) -->
+<div class="hidden md:flex flex-col justify-between col-span-5 bg-primary-container p-10 rounded-2xl text-on-primary shadow-sm relative overflow-hidden h-[600px]">
+<div class="z-10">
+<div class="text-3xl font-black tracking-tighter italic mb-8">ChoTot</div>
+<h1 class="text-4xl font-headline font-bold leading-tight tracking-tight mb-4">The Digital Curator</h1>
+<p class="text-on-primary/80 font-body text-lg max-w-xs">Tham gia cộng đồng mua bán hiện đại, tinh tế và an toàn nhất Việt Nam.</p>
+</div>
+<div class="z-10 flex gap-4 mt-auto">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="portrait of a confident professional woman in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0cROfGWenGnSiqTASJjl9QAUjDh6bWgcNiAyoFZfYhQpjG0mW78dwKP2mMHXeQF90RX4hHOeWwq5_8T6scfkqwPrh1mtMX6t0nPkSpx_YDVy-Z1y54tpqnGFeleDLThQzJvrS-m1QINYAeqy-34Te6D34BUCT6uWgy72T-x4RRoiruMgxT_u3WsuEnvj0zj3uBA7uTCxhRGENAZi1rqTKgJ0wFjR3NClng9qdLQzNBSwFqCASoULGF81lSicdRWHXGWnITqDIwSU"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="portrait of a creative man with a warm smile in an office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNL-NEP7ri5s5Hf2DiG8rbr6Gswbhm3yOnWyeoLoLOYbkwgpDCM4fzO_BtD5CKF8_I85nlQUimBdGubq704bDABTszR-tzZwtW2T6QzXNMhU2bw5L92MlFesQlAJcx_fJoaC1-rc6zCkkgNovGHuNldVr2JaT6rwif-VTdj4VaszLu3IO-xdpQm4zA0lLuwYCq5KkVcJNCoO6IYHpvUWuZXB47-nfuH2SI4UZGvepI6PbL1JxLSZzFQ1sVm95EzVKqZ2tN9G1Jw0c"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="portrait of a young woman with a friendly expression in a modern outdoor environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK3oGuP3FQYA0NULbRxsyBpw4XhdZK8bBl3Afdg462iXs3NIZ8erZfrIDBxDsmEEZH8fj9AeM0U-K6lRK98wj6CGCju30gOdrUZmZVjzs_RSRJYF4j0wIGlaEkMNcEJ_JJxGeKhWN5HDCjXXhgYWjNA1bTagPTieXrC1NIq_irzkj-QStx9TaVy7Q4xCeid2kRgDOgKkkDe6Xd8oa0rzNn6oZ_TW0GS21UL5iONBH1VGM0c6UgE_9PqyM5Brnv0TEFbnqm7-Kj4V8"/>
+</div>
+<div class="text-sm font-label self-center">
+<span class="block font-bold">10M+ users</span>
+<span class="opacity-70">trusted sellers</span>
+</div>
+</div>
+<!-- Background Texture -->
+<div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-primary-fixed/20 blur-3xl"></div>
+<div class="absolute top-10 right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl"></div>
+</div>
+<!-- Registration Form Card (Bento Cell 2) -->
+<div class="col-span-12 md:col-span-7 bg-surface-container-lowest p-8 md:p-12 rounded-2xl md:rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="mb-10">
+<h2 class="text-3xl font-headline font-extrabold tracking-tight text-on-surface mb-2">Đăng ký tài khoản</h2>
+<p class="text-on-surface-variant font-body">Bắt đầu hành trình mua sắm và rao vặt của bạn.</p>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Name Input -->
+<div class="space-y-1.5">
+<label class="text-xs font-label uppercase tracking-widest text-outline ml-1">Họ và tên</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">person</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline/50 transition-all font-body" placeholder="Nguyễn Văn A" type="text"/>
+</div>
+</div>
+<!-- Phone Input (Optional) -->
+<div class="space-y-1.5">
+<label class="text-xs font-label uppercase tracking-widest text-outline ml-1">Số điện thoại <span class="lowercase italic font-normal">(optional)</span></label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">call</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline/50 transition-all font-body" placeholder="0901 234 567" type="tel"/>
+</div>
+</div>
+</div>
+<!-- Email Input -->
+<div class="space-y-1.5">
+<label class="text-xs font-label uppercase tracking-widest text-outline ml-1">Email</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline/50 transition-all font-body" placeholder="example@email.com" type="email"/>
+</div>
+</div>
+<!-- Password Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-xs font-label uppercase tracking-widest text-outline ml-1">Mật khẩu</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline/50 transition-all font-body" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-label uppercase tracking-widest text-outline ml-1">Xác nhận mật khẩu</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">verified_user</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline/50 transition-all font-body" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<!-- Terms -->
+<div class="flex items-start gap-3 px-1 py-2">
+<input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary" id="terms" type="checkbox"/>
+<label class="text-sm text-on-surface-variant leading-relaxed" for="terms">Tôi đồng ý với các <a class="text-primary font-semibold hover:underline" href="#">Điều khoản sử dụng</a> và <a class="text-primary font-semibold hover:underline" href="#">Chính sách bảo mật</a> của ChoTot.</label>
+</div>
+<!-- Primary CTA -->
+<button class="w-full py-4 signature-gradient text-white font-headline font-bold text-lg rounded-xl shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2" type="submit">
+                    Đăng ký
+                    <span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</form>
+<div class="mt-8 text-center">
+<div class="relative flex py-5 items-center">
+<div class="flex-grow border-t border-outline-variant/30"></div>
+<span class="flex-shrink mx-4 text-xs font-label uppercase tracking-widest text-outline">Đã có tài khoản?</span>
+<div class="flex-grow border-t border-outline-variant/30"></div>
+</div>
+<a class="inline-flex items-center gap-2 px-8 py-3 bg-secondary-container/30 text-secondary font-headline font-bold rounded-xl hover:bg-secondary-container/50 transition-colors" href="/auth/login">
+                    Đăng nhập ngay
+                </a>
+</div>
+</div>
+<!-- Footer Decoration (Optional Bento Hint) -->
+<div class="col-span-12 mt-4 text-center">
+<p class="text-xs font-label text-outline uppercase tracking-[0.2em]">© 2024 ChoTot Digital Curator. All rights reserved.</p>
+</div>
+</main>
+<!-- Background Decoration for the whole page -->
+<div class="fixed inset-0 -z-50 pointer-events-none opacity-40">
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-50 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-slate-100 rounded-full blur-[100px]"></div>
+</div>
+</body></html>
